@@ -1,6 +1,8 @@
 name: "BiCIKL"
 author: "Pensoft"
 homepage: "https://pensoft.net"
+code: "Pensoft-Bicikl"
+authorCode: "Pensoft"
 description: "Demonstrates the basic concepts of the front-end theming."
 previewImage: "assets/images/preview.png"
 require:
@@ -28,7 +30,6 @@ require:
     - pensoft.cardprofiles
     - pensoft.jumbotron
     - pensoft.library
-    - pensoft.links
     - pensoft.maintenance
     - pensoft.media
     - pensoft.pageextension
