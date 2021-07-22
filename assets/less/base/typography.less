@@ -1,5 +1,4 @@
 @import "fonts/@{font-family}.less";
-@import "fonts/oswald.less";
 
 .font-size(@ratio: 1) {
     & when (@font-size > 0px) {
@@ -52,9 +51,8 @@ h6,.h6 {
     .line-height();
 }
 h1,.h1, h2,.h2, h3,.h3, h4,.h4, h5,.h5, h6,.h6,.title {
-    margin-bottom: @margin-base-space;
+    margin-bottom: @margin-base-space*2!important;
     color: @heading-text-color;
-    font-family: "Oswald";
     &.underline {
 
         display: inline-block;
@@ -76,7 +74,6 @@ h1,.h1, h2,.h2, h3,.h3, h4,.h4, h5,.h5, h6,.h6,.title {
       margin-bottom: 0;
       text-align: left;
       color: @heading-text-color;
-      font-family: "Oswald";
       &.inner-page{
         margin-bottom: @margin-base-space!important;
       }

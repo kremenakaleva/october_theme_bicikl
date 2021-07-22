@@ -19,8 +19,11 @@ button:not(:disabled) {
     user-select: none;
     background-color: transparent;
     border: 1px solid transparent;
-    padding: @padding-base-space * 0.75 @padding-base-space;
-    .font-size();
+    padding-left: 30px!important;
+    padding-right: 30px!important;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    font-size: 18px!important;
     .line-height();
     .rounded();
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -44,7 +47,10 @@ button:not(:disabled) {
         .border-top();
         .border-right();
         padding: 0;
-        height: 32px;
+        height: 42px;
+        width: 62px;
+      background: url('../../assets/images/search.svg') center no-repeat;
+      background-size: 26px;
         .breakpoint-small-down({
           height: 45px;
           text-align: end;
@@ -53,6 +59,22 @@ button:not(:disabled) {
           margin-right: 10px;
           width: 20%;
         });
+    }
+    &.searchLibrary {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 0 !important;
+        line-height: unset!important;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        .border-bottom();
+        .border-top();
+        .border-right();
+        padding: 0;
+        height: 47px;
+        width: 67px;
+      background: url('../../assets/images/search_grey.svg') center no-repeat;
+      background-size: 26px;
     }
 
     &.no-padding {
@@ -92,19 +114,19 @@ button:not(:disabled) {
 }
 
 .btn-primary {
-    color: @white-color;
-    background-color: @button-background-color;
-    border-color: @button-background-color;
-    .rounded(50px);
+    color: @white-color!important;
+    background-color: @button-background-color!important;
+    border-color: @button-background-color!important;
+    .rounded(50px)!important;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
 }
 
-.btn-primary:hover {
-    color: @button-background-color;
-    background-color: @white-color;
+.btn-primary:hover, .btn-primary.active {
+    color: @button-background-color!important;
+    background-color: @white-color!important;
     border-color: @button-background-color;
     .rounded(50px);
     padding-left: 30px;
@@ -114,20 +136,18 @@ button:not(:disabled) {
 }
 
 .btn-secondary {
-    color: @white-color;
-    background-color: @secondary-btn-color;
-    border-color: @secondary-color;
-    .rounded(50px);
+    color: @primary-color!important;
+    background-color: @white-color;
+    border-color: @white-color;
+    .rounded(50px)!important;
     padding: 15px 30px;
-    &.width100{
-      width: 100%;
-    }
+  font-family: Poppins;
 }
 
 .btn-secondary:hover{
-  color: @secondary-btn-color;
-  background-color: @white-color;
-  border-color: @secondary-btn-color;
+  color: @white-color;
+  background-color: @primary-color;
+  border-color: @white-color;
 }
 
 .btn-success {

@@ -2,52 +2,79 @@
   margin-top: -2px;
 }
 
+
+
+
 ul.partners_logos_list{
   list-style-type: none;
   padding: 0px;
-  margin: 0;
-  display: block;
+  margin: 0 0 40px 0;
+  //display: block;
+  display: inline-block;
+  vertical-align: middle;
 }
+
 ul.partners_logos_list li{
-  display: inline-flex;
+  //display: inline-flex;
   text-align: center;
   vertical-align: middle;
   margin: 17px 17px 0 0;
-  background: @secondary-color;
+  background: #efefef;
   border-radius: 50%;
-  padding: 20px;
+  //padding: 20px;
+  box-sizing: border-box;
+  //height: 100%;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid #c2c2c2;
+  position: relative;
   .breakpoint-small-down({
-    margin: 17px 4px 0 4px;
+    margin: 17px 0px 0 0px;
   });
 
-}
-
-
-ul.partners_logos_list li {
-  margin-top: 1rem;
-  transition: all .3s ease-in-out;
+  img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 ul.partners_logos_list li:hover{
-  margin-top: 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffffff;
 }
 
 .partner_cover{
-
+  padding: 20px!important;
+  img{
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .partner_cover.width{
-  height: 119px;
-  width: 119px;
-  line-height: 140px!important;
+  height: 145px;
+  width: 145px;
+  line-height: 145px!important;
+  .breakpoint-small-down({
+    height: 124px;
+    width: 124px;
+    line-height: 124px!important;
+  });
 }
 
 .partner_cover.height{
   text-align: center;
-  height: 119px;
-  width: 119px;
-  line-height: 185px!important;
+  height: 145px;
+  width: 145px;
+  line-height: 145px!important;
+  .breakpoint-small-down({
+    height: 124px;
+    width: 124px;
+    line-height: 124px!important;
+  });
 }
 
 .fill_default.fill_ES:hover,
@@ -69,6 +96,11 @@ ul.partners_logos_list li:hover{
   cursor: pointer;
 }
 
+.fill_default:hover
+{
+  cursor: pointer;
+}
+
 /*advisory-board-container */
 
 .advisory-board-container{
@@ -79,7 +111,6 @@ ul.partners_logos_list li:hover{
     margin-bottom: 0;
     text-align: left;
     color: #555555;
-    font-family: "Oswald";
     display: block;
     font-size: 36px;
     line-height: 1.7em;
@@ -105,7 +136,6 @@ ul.partners_logos_list li:hover{
     margin-bottom: 1rem;
     margin-top: 1rem;
     margin-right: 2rem;
-    font-family: Muli;
 
     i.pr {
       color: #8ca03c;
@@ -160,7 +190,6 @@ ul.partners_logos_list li:hover{
     margin-bottom: 0;
     text-align: left;
     color: #555555;
-    font-family: "Oswald";
     display: block;
     font-size: 36px;
     line-height: 1.7em;
@@ -186,7 +215,6 @@ ul.partners_logos_list li:hover{
     margin-bottom: 1rem;
     margin-top: 1rem;
     margin-right: 2rem;
-    font-family: Muli;
     color: #555555;
 
     i.pr {
@@ -234,3 +262,50 @@ ul.partners_logos_list li:hover{
 
 
 }
+
+.partners .list{
+  padding-left: 40px;
+
+  .breakpoint-small-down({
+    padding-left: 0px;
+  });
+  .list-item-column{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-item-body{
+    order: 2;
+  }
+
+  h3{
+    font-weight: 600;
+    margin: 20px 0!important;
+    order: 1;
+  }
+
+  .info{
+    color: #707070!important;
+    font-size: 1em;
+    order: 3;
+    i{
+      color: @dark-grey-color!important;
+      margin-top: -3px !important;
+      line-height: 1.5em;
+      float: left;
+      margin-right: 6px;
+    }
+    a{
+      color: @blue-color!important;
+    }
+    a:hover{
+      color: @blue-color!important;
+      opacity: 0.7;
+    }
+  }
+}
+
+//.partners .container{
+//  display: table;
+//  .partners_logos_list { display: table-header-group; }
+//}

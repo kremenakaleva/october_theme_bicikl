@@ -1,14 +1,15 @@
-title = "Library"
 url = "/library"
 layout = "default"
+title = "Library"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+header_image = "header/library.jpg"
 
 [LibraryPage]
 templates = "template3"
+has_search = 1
 ==
-<div class="container text-center">
-    {% component 'LibraryPage' %}
-    <img src="{{'icons_showcase-04.svg' | media}}" style="max-width:350px;">
+<div class="container">
+	{% component 'LibraryPage' %}
 </div>

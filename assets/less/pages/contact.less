@@ -1,40 +1,109 @@
-.card-container {
+.profile-container{
+  padding: 40px;
+  position: relative;
+  h1{
+    margin-bottom: 0px!important;
+    font-size: 32px !important;
+  }
+  .position{
+    color: @green-color;
+    font-weight: 600;
+    margin-bottom: 0px;
+    font-size: 24px;
+    line-height: 24px;
+    padding-left: 40px;
     .breakpoint-small-down({
-      width: -webkit-fill-available!important;
+      padding-left: 0px;
+      margin-top: 40px;
     });
-}
+  }
 
-.card.profile {
-    width: 370px !important;
-    background-color: @secondary-color;
-    padding: 20px !important;
-    margin-bottom: 1rem;
-    .card-img-top {
-        margin-bottom: 1rem;
+  .profile-image.person{
+
+    img{
+      width: 100%;
+      height: auto;
+      max-width: 425px;
+      text-align: center;
+      vertical-align: middle;
+      background: #e7e7e7;
+      border-radius: 50%;
+      position: relative;
+      .breakpoint-small-down({
+        width: 277px;
+        height: 277px;
+      });
     }
-}
 
+  }
 
-.card.profile .card-body {
-    background: none !important;
-    min-height: auto !important;
-    padding: 0 !important;
-    .font-size(0.8);
-}
+  .profile-image.pensoft{
+    width: 425px;
+    height: 425px;
+    text-align: center;
+    vertical-align: middle;
+    background: #e7e7e7;
+    border-radius: 50%;
+    //position: relative;
+    .breakpoint-small-down({
+      width: 277px;
+      height: 277px;
+    });
+    img{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-.card.profile .card-header {
-    font-weight: bold;
-    text-align: left !important;
-    color: #1a3354;
-    margin-bottom: 1rem;
-}
+  }
 
-.contact_info h3{
-  font-family: Muli;
-  font-weight: bold;
-}
+  .contact-mail{
+    //position: absolute;
+    //top: 24%;
+    //right: 12%;
+    background: @dark-grey-color url('../../assets/images/mail.svg') center no-repeat;
+    background-size: 100%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid @dark-grey-color;
+    display: block;
+    margin-top: 20px;
+    margin-left: 40px;
+    .breakpoint-small-down({
+      margin-left: 0px;
+    });
+    &:hover{
+      opacity: 0.7;
 
-.coordinator_image img{
-  border-radius: 50%;
-  width: 100%;
+    }
+  }
+
+  
+  .profile-description{
+    color: #707070;
+    font-size: 18px;
+    margin-top: 20px;
+    padding-left: 40px;
+    .breakpoint-small-down({
+      padding-left: 0px;
+    });
+    .contact-info{
+      min-height: 33px;
+      img{
+        width: 60%;
+      }
+    }
+
+    i.pr{
+      color: @dark-grey-color;
+      font-size: 25px;
+      line-height: 30px;
+      margin-top: 3px;
+      float: left;
+      margin-right: 5px;
+      height: 30px;
+    }
+  }
 }

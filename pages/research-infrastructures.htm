@@ -1,0 +1,106 @@
+url = "/research-infrastructures"
+layout = "default"
+title = "Research infrastructures"
+header_image = "header/research-infrastructures.jpg"
+
+[jumbotron]
+jumbotron = "research-infrastructures"
+templates = "template2"
+description_limit = 0
+
+[jumbotron transnationalAccess]
+jumbotron = "transnational-access"
+title = 1
+templates = "template2"
+description_limit = 0
+
+[jumbotron virtualAccess]
+jumbotron = "virtual-access"
+title = 1
+templates = "template2"
+description_limit = 0
+
+[jumbotron supportingRI]
+jumbotron = "supporting-research-infrastructures"
+title = 1
+templates = "template2"
+description_limit = 0
+==
+<?php
+use Pensoft\Partners\Models\Partners;
+
+function onStart(){
+	$this['transnational'] =  Partners::where('type', 2)->get();
+	$this['virtual'] =  Partners::where('type', 3)->get();
+	$this['supporting'] =  Partners::where('type', 4)->get();
+}
+?>
+==
+<div class="container">
+{% component 'jumbotron' %}
+</div>
+
+<div class="container anchors">
+	<a href="#transnational-access">Transnational access</a>
+	<a href="#virtual-access">Virtual access</a>
+	<a href="#supportingRI">Supporting Research Infrastructures</a>
+</div>
+
+<div class="container">
+	<a name="transnational-access" class="anchor">&nbsp;</a>
+	{% component 'transnationalAccess' %}
+
+	<div class="row mt-2">
+		{% for itemT in transnational %}
+		<div class="col-xs-12 col-md-6 ri-item">
+			<div class="row top-xs start-md center-xs">
+				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemT.instituion_url}}" target="_blank"><img src="{{itemT.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
+				<div class="col-md-9 col-xs-12 start-xs">
+					<h4><a href="{{itemT.instituion_url}}" target="_blank">{{itemT.instituion}}</a></h4>
+					<div class="info">{{itemT.content|raw}}</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+
+</div>
+
+<div class="container">
+	<a name="virtual-access" class="anchor">&nbsp;</a>
+	{% component 'virtualAccess' %}
+	<div class="row mt-2">
+		{% for itemV in virtual %}
+		<div class="col-xs-12 col-md-6 ri-item">
+			<div class="row top-xs start-md center-xs">
+				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemV.instituion_url}}" target="_blank"><img src="{{itemV.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
+				<div class="col-md-9 col-xs-12 start-xs">
+					<h4><a href="{{itemV.instituion_url}}" target="_blank">{{itemV.instituion}}</a></h4>
+					<div class="info">{{itemV.content|raw}}</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+</div>
+
+<div class="container">
+	<a name="supportingRI" class="anchor">&nbsp;</a>
+	{% component 'supportingRI' %}
+	<div class="row mt-2">
+		{% for itemS in supporting %}
+		<div class="col-xs-12 col-md-6 ri-item">
+			<div class="row top-xs start-md center-xs">
+				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemS.instituion_url}}" target="_blank"><img src="{{itemS.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
+				<div class="col-md-9 col-xs-12 start-xs">
+					<h4><a href="{{itemS.instituion_url}}" target="_blank">{{itemS.instituion}}</a></h4>
+					<div class="info">{{itemS.content|raw}}</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+</div>

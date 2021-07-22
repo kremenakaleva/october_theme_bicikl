@@ -4,6 +4,7 @@ layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+header_image = "header/media-center.jpg"
 ==
 <?php
 use Pensoft\Media\Models\MediaLogos;
@@ -12,6 +13,7 @@ use Pensoft\Media\Models\Newsletters;
 use Pensoft\Media\Models\Presentations;
 use Pensoft\Media\Models\Pressreleases;
 use Pensoft\Media\Models\Videos;
+use System\Models\File;
 
 function onStart(){
 	$this['logos'] =  MediaLogos::get();
@@ -20,73 +22,304 @@ function onStart(){
 	$this['presentations'] =  Presentations::get();
 	$this['pressreleases'] =  Pressreleases::get();
 	$this['videos'] =  Videos::get();
+
+
+	if(get('download')){
+		$file = File::find((int)get('download'));
+		$file_name = $file->getLocalPath();
+		$recordName = get('file_name') ? get('file_name') : 'PROMICON_logo';
+		$ext= $file->getExtension();
+
+		if (file_exists($file_name)) {
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header("Content-Type: application/force-download");
+			header('Content-Disposition: atntachment; filename='.$recordName .'.'. $ext);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
+			header('Content-Length: ' . filesize($file_name));
+			ob_clean();
+			flush();
+			readfile($file_name);
+			exit();
+		}
+	}
 }
 ?>
 ==
-<div class="container">
+<div class="container-fluid media-center-background">
+	<div class="container tabs">
     <div class="row start-sm center-xs">
-		{% if logos.count() %}
-        <div class="col-sm-3 col-xs-10  mt-md-0 mt-1">
+		{% if pressreleases.count() %}
+		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
 			<div class="card-container">
-				<a href="{{url('media-center')}}/logo" title="Logo">
-					<span class="card_image_container" style="background: url({{'pensoft/logo.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
-					<span class="btn btn-secondary width100">Logo</span>
+				<a href="#PressReleases" title="Press releases">
+					<span class="card_image_container" style="background: url({{'media/press_releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
+					<span class="media-label">Press releases</span>
 				</a>
 			</div>
 		</div>
 		{% endif %}
+
+
 		{% if flyers.count() %}
-        <div class="col-sm-3 col-xs-10 mt-md-0 mt-1">
+        <div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
 			<div class="card-container">
-				<a href="{{url('media-center')}}/flyer" title="Promotional materials">
-					<span class="card_image_container" style="background: url({{'pensoft/Brochure.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Flyer and poster"></span>
-					<span class="btn btn-secondary width100">Promotional materials</span>
+				<a href="#PromotionalMaterials" title="Promotional materials">
+					<span class="card_image_container" style="background: url({{'media/promotional_materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Promotional materials"></span>
+					<span class="media-label">Promotional materials</span>
 				</a>
 			</div>
         </div>
 		{% endif %}
 		{% if newsletters.count() %}
-		<div class="col-sm-3 col-xs-10 mt-md-0 mt-1">
+		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
 			<div class="card-container">
-				<a href="{{url('media-center')}}/newsletters" title="Newsletters">
+				<a href="#Newsletter" title="Newsletters">
 					<span class="card_image_container" style="background: url({{'pensoft/Newsletters.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/newsletters" title="Newsletters"></span>
-					<span class="btn btn-secondary width100">Newsletters</span>
+					<span class="media-label">Newsletters</span>
 				</a>
 			</div>
 		</div>
 		{% endif %}
 
 		{% if presentations.count() %}
-		<div class="col-sm-3 col-xs-10 mt-md-0 mt-1">
+		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
 			<div class="card-container">
-				<a href="{{url('media-center')}}/presentation" title="Scientific posters">
-					<span class="card_image_container" style="background: url({{'pensoft/Presentations.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/presentation" title="Presentation"></span>
-					<span class="btn btn-secondary width100">Scientific posters</span>
+				<a href="#Presentation" title="Presentation">
+					<span class="card_image_container" style="background: url({{'media/project_presentation.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/presentation" title="Presentation"></span>
+					<span class="media-label">Project presentation</span>
 				</a>
 			</div>
 		</div>
 		{% endif %}
-		{% if pressreleases.count() %}
-		<div class="col-sm-3 col-xs-10 mt-md-0 mt-1">
-			<div class="card-container">
-				<a href="{{url('media-center')}}/press-releases" title="Press releases">
-					<span class="card_image_container" style="background: url({{'pensoft/Press_releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
-					<span class="btn btn-secondary width100">Press releases</span>
-				</a>
-			</div>
-		</div>
-		{% endif %}
+
 		{% if videos.count() %}
-		<div class="col-sm-3 col-xs-10 mt-md-0 mt-1">
+		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
 			<div class="card-container">
-				<a href="{{url('media-center')}}/videos" title="Videos">
-					<span class="card_image_container" style="background: url({{'pensoft/Videos.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/videos" title="Videos"></span>
-					<span class="btn btn-secondary width100">Videos</span>
+				<a href="#Videos" title="Videos">
+					<span class="card_image_container" style="background: url({{'media/videos.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/videos" title="Videos"></span>
+					<span class="media-label">Videos</span>
+				</a>
+			</div>
+		</div>
+		{% endif %}
+
+		{% if logos.count() %}
+		<div class="col-sm-2 col-xs-10  mt-md-0 mt-1">
+			<div class="card-container">
+				<a href="#Logos" title="Logo">
+					<span class="card_image_container" style="background: url({{'media/logo_and_branding.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
+					<span class="media-label">Logo and branding</span>
 				</a>
 			</div>
 		</div>
 		{% endif %}
 
     </div>
-	<p>&nbsp;</p>
+
+	<!--tabs content	-->
+
+	<div class="row" id="PressReleases">
+		<div class="container">
+			<h1 class="display-1">Presss releases</h1>
+			<div class="row">
+
+				{% for record in pressreleases %}
+				{% spaceless %}
+				<div class="col-xs-12">
+					<div class="press-release-container">
+						<div class="title">{{record.name}}</div>
+						<div class="date">{{record.date |date('F Y')}}</div>
+						<div class="body">{{record.description | raw}}</div>
+						<div class="row link mt-1">
+							{% if record.link %}
+							<a href="{{record.link}}" target="_blank" class="btn btn-primary">EurekAlert!</a>
+							{% endif %}
+							{% if record.link_cordis %}
+							<a href="{{record.link_cordis}}" target="_blank" class="btn btn-primary">CORDIS Wire</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+
+				{% endspaceless %}
+				{% else %}
+				{{ noRecordsMessage }}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row" id="PromotionalMaterials">
+		<div class="container">
+
+			<ul class="flyers">
+
+				{% for record in flyers %}
+				{# Use spaceless tag to remove spaces inside the A tag. #}
+				{% spaceless %}
+				{% if record.flyer_image %}
+				<li>
+					<h1 class="display-1">{{record.name}}</h1>
+					<div class="flyer_image_container" title="{{record.name}}">
+						<img src="{{record.flyer_image.thumb(auto,448,{'mode':'crop'})}}">
+					</div>
+					<a href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.name|replace({' ': '_'})}}" title="{{record.name}}" class="btn btn-primary">Download</a>
+				</li>
+
+
+				{% endif %}
+
+				{% endspaceless %}
+				{% else %}
+				{{ noRecordsMessage }}
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+
+
+
+	<div class="row" id="Presentation">
+
+		<div class="container">
+			<h1 class="display-1">Project presentation</h1>
+			<div class="row">
+
+				{% for record in presentations %}
+				{% spaceless %}
+				{% if record.presentation_image %}
+				<div class="col-xs-12 col-lg-6 center-xs">
+					<div class="story broshure_and_poster">
+						<p align="center"><a href="{{record.file.path}}" target="_blank"><img src="{{record.presentation_image.thumb(812,454,{'mode':'crop'})}}" title="{{record.name}}"> </a></p>
+					</div>
+					{% if record.file %}
+					<a class="btn btn-primary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.name|replace({' ': '_'})}}" target="_blank">Download</a>
+
+					{% endif %}
+				</div>
+				{% endif %}
+
+				{% endspaceless %}
+				{% else %}
+				{{ noRecordsMessage }}
+				{% endfor %}
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<div class="row" id="Videos">
+
+		<div class="container">
+			<h1 class="display-1">Videos</h1>
+			<div class="row">
+				{% set records = mediaVideosList %}
+
+				{% for record in videos %}
+				{% spaceless %}
+				<div class="col-md-6 col-xs-12 video-container">
+
+					{% if record.file %}
+					<video controls="" width="100%"><source src="{{record.file.path}}" type="video/mp4"></video>
+					<p class="video-title">{{record.name}}</p>
+					<p>Attachment: {{record.file.file_name}}, {{record.file.size}}</p>
+
+					<p align="center"><a class=" btn btn-primary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.name|replace({' ': '_'})}}">Download</a></p>
+
+					{% endif %}
+
+					{% if record.youtube_url %}
+					<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{record.youtube_url}}" width="100%" height="448"></iframe>
+					<p class="video-title">{{record.name}}</p>
+					<p>&nbsp;</p>
+					{% endif %}
+
+					{% if record.vimeo_url %}
+					<iframe width="100%" height="448" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							src="{{record.vimeo_url}}">
+					</iframe>
+					<p class="video-title">{{record.name}}</p>
+					<p>&nbsp;</p>
+					{% endif %}
+				</div>
+
+
+
+
+				{% endspaceless %}
+				{% else %}
+				{{ noRecordsMessage }}
+				{% endfor %}
+				<script>
+					initAccordeon('accordion-documents');
+				</script>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="row" id="Logos">
+		<div class="container">
+			<h1 class="display-1">Logo</h1>
+			<div class="row top-xs" style="display: table; margin-bottom: 80px;">
+				<div class="col-md-8 col-xs-12" style="max-width: unset;">
+					<div class="row top-xs">
+
+
+						{% for record in logos %}
+						{% spaceless %}
+						{% if record.logo_image %}
+
+						<div class="col-md-3 col-xs-12 mb-2">
+							<div class="logo-container {{record.name}}">
+								<img src="{{record.logo_image.path}}" title="{{record.name}}" style="max-width: 100%;">
+							</div>
+							<div class="links">
+								{% if record.file_jpg %}
+								<a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.name|replace({' ': '_'})}}" title="Logo">Download jpg</a><br>
+								{% endif %}
+								{% if record.file_png %}
+								<a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.name|replace({' ': '_'})}}" title="Logo">Download png</a><br>
+								{% endif %}
+								{% if record.file_eps %}
+								<a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.name|replace({' ': '_'})}}" title="Logo pack">Download svg</a><br>
+								{% endif %}
+							</div>
+						</div>
+						{% endif %}
+
+						{% endspaceless %}
+						{% else %}
+						{{ noRecordsMessage }}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 logo-full-pack-container">
+					<a class="btn btn-primary" href="{{ 'BiCIKL_logo_full_pack.rar'|media }}">Download full pack</a>
+				</div>
+			</div>
+			<h1 class="display-1">Visual identity guide</h1>
+			<div class="row" style="display: table; width: 100%;">
+				<div class="col-xs-6 guide-image-container" style="max-width: unset;"></div>
+				<div class="col-xs-6 guide-link-container" style="max-width: unset;">
+					<a href="#" class="btn btn-primary">Download guide</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+		<!-- end  content	-->
+</div>
 </div>

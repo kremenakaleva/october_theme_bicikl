@@ -1,18 +1,31 @@
-title = "Events"
 url = "/events/:slug?|[a-zA-Z\-0-9]"
 layout = "default"
+title = "Events"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+header_image = "header/events.jpg"
 
 [calendar]
 default = "true"
 limit = 10
 category = "null"
 language = "en"
+
+[calendar calendarOrganized]
+default = "true"
+limit = 10
+category = 1
+language = "en"
+
+[calendar calendarInvolved]
+default = "true"
+limit = 10
+category = 2
+language = "en"
 ==
 <?php
-use ChristophHeich\Calendar\Models\Entry;
+use Pensoft\Calendar\Models\Entry;
 
 function onStart(){
 
@@ -48,30 +61,75 @@ function onStart(){
 ==
 <div class="container">
 {% if not slug %}
-    {% component 'calendar' %}    
+	<div class="tabs">
+		<a class="btn btn-primary" href="#all">All events</a>
+		<a class="btn btn-primary" href="#organized">{{this.theme.site_name}} organized</a>
+		<a class="btn btn-primary" href="#involved">{{this.theme.site_name}} involved</a>
+	</div>
+	<!--tabs content	-->
+
+	<div class="row" id="all">
+    	{% component 'calendar' %}
+	</div>
+
+	<div class="row" id="organized">
+    	{% component 'calendarOrganized' %}
+	</div>
+
+	<div class="row" id="involved">
+    	{% component 'calendarInvolved' %}
+	</div>
 {% else %}
 
     {% if entry %}
-    <div class="fr-view">
-        <h1>{{ entry.title }}</h1>
-        <div class="text-published mt-2">
-            {{entry.event_date}}
-            {{entry.event_time}}
-        </div>
-        <div class="text bold mt-2">{{ entry.place }}</div>
-        <div class="event-container d-flex">
+	<div class="row newslist single-news-item">
+		{% set materials = entry.materials %}
+		{% if entry.cover_image or materials %}
+		<div class="col-xs-12 col-md-5">
+			{% if entry.cover_image %}
+			<img class="content left" src="{{entry.cover_image|crop_image|resize(673, 411, {'mode':'crop'})}}" alt="{{entry.cover_image.title}}">
+			{% endif %}
 
-            <div class="mt-2">
-                {% if entry.cover_image %}
-                    <img class="mr-2 mb-2 float-right" src="{{entry.cover_image|crop_image|resize(500, auto, {'mode':'crop'})}}" alt="entry.cover_image.title">
-                {% endif %}
-                {{ entry.description|raw }}
-            </div>
-        </div>
-        {% if entry.url %}
-        <a class="mt-2 button" href="{{ entry.url }}" target="_blank">{{ 'To the event'|_ }}</a>
-        {% endif %}
-    </div>
+			{% if materials %}
+			<ul class="event_materials">
+				<h1 class="display-1">Materials</h1>
+				{% for item in materials %}
+					{% set url = item.button_file ? item.button_file|media : item.button_url %}
+					<li>
+						<h2>{{ item.title }}</h2>
+						<a class="btn btn-primary" href="{{ url }}" target="_blank">{{ item.button_title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+		</div>
+
+		<div class="col-xs-12 col-md-7">
+		{% else %}
+			<div class="col-xs-12 col-md-12">
+		{% endif %}
+
+			<div class="news-title">
+				<h1 class="single-new-title">{{ entry.title }}</h1>
+
+			</div>
+			{% if entry.event_date %}
+			<div class="event-date">
+				<i class="pr p-time"></i> {{entry.event_date}}
+				{{entry.event_time}}
+			</div>
+			{% endif %}
+
+			{% if entry.place %}
+			<div class="event-place"><i class="pr p-location"></i> {{ entry.place }}</div>
+			{% endif %}
+
+			<div class="content mt-2">
+				{{ entry.description|raw }}
+			</div>
+		</div>
+	</div>
     
     {% else %}
     {% endif %}

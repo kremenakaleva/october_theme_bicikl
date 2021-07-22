@@ -6,20 +6,11 @@
 }
 
 .card-container {
-    margin-right: auto;
-    margin-left: auto;
-    background-color: @secondary-color;
-    border-radius: 10px;
     margin-bottom: 20px;
-    font-family: Oswald;
-    color: @heading-text-color;
-    padding: 2px 0 0 0;
-}
-
-.card-container .btn-secondary{
-  background: none;
-  color: @heading-text-color;
-  padding: 0 0 25px 0;
+    padding: 0 50px;
+  .breakpoint-laptop-down({
+    padding: 0px;
+  });
 }
 
 .card-container:hover{
@@ -32,12 +23,13 @@
 
 .card_image_container{
   display: flex;
-  background-size: 110px!important;
-  height: 160px;
-  width: 160px;
-  background-color: #ffffff!important;
+  background-size: 80px!important;
+  height: 180px;
+  width: 180px;
+  background-color: #efefef!important;
   border-radius: 50%;
   margin: 25px auto;
+  border: 1px solid #c1c1c1;
 }
 
 .card-carousel {
@@ -214,7 +206,7 @@
         .card-title {
             color: @heading-text-color;
             margin-bottom: @margin-base-space;
-            font-family: Oswald;
+            
         }
 
         -ms-flex: 1 1 auto;
@@ -235,7 +227,6 @@
     .card-title {
         color: @heading-text-color;
         margin-bottom: @margin-base-space * .75rem;
-        font-family: "Oswald";
     }
 
     &.profile {
