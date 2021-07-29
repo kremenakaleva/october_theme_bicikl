@@ -46,9 +46,10 @@ function onStart(){
 	<a href="#supportingRI">Supporting Research Infrastructures</a>
 </div>
 
-<div class="container">
+<div class="container" id="accordion-ri">
 	<a name="transnational-access" class="anchor">&nbsp;</a>
 	{% component 'transnationalAccess' %}
+
 
 	<div class="row mt-2">
 		{% for itemT in transnational %}
@@ -58,6 +59,16 @@ function onStart(){
 				<div class="col-md-9 col-xs-12 start-xs">
 					<h4><a href="{{itemT.instituion_url}}" target="_blank">{{itemT.instituion}}</a></h4>
 					<div class="info">{{itemT.content|raw}}</div>
+					{% if itemT.add_description %}
+					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
+						<div class="row middle-xs accordion-toggle">read more</div>
+
+						<div class="accordion-content" style="display: none;">
+							<div class="info">{{itemT.add_description|raw}}</div>
+						</div>
+					</div>
+					{% endif %}
+
 				</div>
 			</div>
 		</div>
@@ -78,6 +89,15 @@ function onStart(){
 				<div class="col-md-9 col-xs-12 start-xs">
 					<h4><a href="{{itemV.instituion_url}}" target="_blank">{{itemV.instituion}}</a></h4>
 					<div class="info">{{itemV.content|raw}}</div>
+					{% if itemV.add_description %}
+					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
+						<div class="row middle-xs accordion-toggle">read more</div>
+
+						<div class="accordion-content" style="display: none;">
+							<div class="info">{{itemV.add_description|raw}}</div>
+						</div>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -97,6 +117,15 @@ function onStart(){
 				<div class="col-md-9 col-xs-12 start-xs">
 					<h4><a href="{{itemS.instituion_url}}" target="_blank">{{itemS.instituion}}</a></h4>
 					<div class="info">{{itemS.content|raw}}</div>
+					{% if itemS.add_description %}
+					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
+						<div class="row middle-xs accordion-toggle">read more</div>
+
+						<div class="accordion-content" style="display: none;">
+							<div class="info">{{itemS.add_description|raw}}</div>
+						</div>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -104,3 +133,7 @@ function onStart(){
 
 	</div>
 </div>
+
+<script>
+	initAccordeon('accordion-ri');
+</script>

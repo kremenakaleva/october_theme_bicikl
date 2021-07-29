@@ -22,6 +22,7 @@ var keepFooter = function(documentHasScroll){
 
 
 $(document).ready(function() {
+
 	var loggedInMenuNavbar = $('.navbar-loggedin-user');
 	loggedInMenuNavbar.find('#menu').removeAttr('id');
 
@@ -144,6 +145,42 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	$('.numbers').attr('data-aos', 'fade-up');
+	$('.mission h1.display-1').attr('data-aos', 'fade-up');
+	$('.vision h1.display-1').attr('data-aos', 'fade-up');
+	$('.results h1.display-1').attr('data-aos', 'fade-up');
+	$('.card-img-top').attr('data-aos', 'fade-up');
+	$('.logo-container').attr('data-aos', 'fade-up');
+	$('.subscribe-items a').attr('data-aos', 'fade-up');
+	$('.icons a').attr('data-aos', 'fade-up');
+	$('.partners_logos_list li').attr('data-aos', 'fade-up');
+
+	// about page
+	$('.find').attr('data-aos', 'fade-up');
+	$('.interoperate').attr('data-aos', 'fade-up');
+	$('.access').attr('data-aos', 'fade-up');
+	$('.reuse').attr('data-aos', 'fade-up');
+	$('.researchTools').attr('data-aos', 'fade-up');
+	$('.interlinkedKnowledge').attr('data-aos', 'fade-up');
+	$('.texAndDataMiningWorkflows').attr('data-aos', 'fade-up');
+	$('.fairDataPlace').attr('data-aos', 'fade-up');
+	$('.journalProductionWorkflow').attr('data-aos', 'fade-up');
+	$('.biodiversityKnowledgeHub').attr('data-aos', 'fade-up');
+
+	$('.project-structure-networking h1').attr('data-aos', 'fade-up');
+	$('.project-structure-transnational h1').attr('data-aos', 'fade-up');
+	$('.project-structure-jointresearch h1').attr('data-aos', 'fade-up');
+
+
+	$('.partners svg').attr('data-aos', 'fade-up');
+	$('.card_image_container').attr('data-aos', 'fade-up');
+
+	// media
+	$('.flyer_image_container img').attr('data-aos', 'fade-up');
+	$('.broshure_and_poster img').attr('data-aos', 'fade-up');
+	// $('.logo-container img').attr('data-aos', 'fade-up');
+	$('.guide-container').attr('data-aos', 'fade-up');
 
 });
 

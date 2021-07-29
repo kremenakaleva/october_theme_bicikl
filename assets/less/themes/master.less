@@ -150,12 +150,12 @@ ol.q {list-style-type: upper-roman; padding-left: 20px;}
         display: flex;
         flex: 1 0 auto;
         justify-content: center;
-        color: @footer-text-color;
+        color: #707070;
         white-space: nowrap;
-        .breakpoint-small-down ({
-          font-size: 12px!important;
-
-        })
+        font-size: 12px;
+        a{
+          color: #707070!important;
+        }
     }
     .social-networks {
         flex: 1 0 auto;
@@ -595,7 +595,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
 .slogan_text{
   color: @white-color;
   max-width: 1024px;
-  font-size: 69px;
+  font-size: 68px;
   margin-left: -20px;
   position: absolute;
   bottom: 100px;
@@ -609,19 +609,19 @@ now override the 3.3 new styles for modern browsers & apply opacity
   }
 
   span{
-    font-weight: 600;
-    &:nth-of-type(2){
-      color: @green-color;
-    }
-    &:nth-of-type(3){
-      color: @blue-color;
-    }
-    &:nth-of-type(4){
-      color: @purple-color;
-    }
-    &:nth-of-type(5){
-      color: @yellow-color;
-    }
+    font-weight: bold;
+    //&:nth-of-type(2){
+    //  color: @green-color;
+    //}
+    //&:nth-of-type(3){
+    //  color: @blue-color;
+    //}
+    //&:nth-of-type(4){
+    //  color: @purple-color;
+    //}
+    //&:nth-of-type(5){
+    //  color: @yellow-color;
+    //}
   }
 
   .breakpoint-small-down({

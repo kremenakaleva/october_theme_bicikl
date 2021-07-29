@@ -264,9 +264,18 @@
 
 .project-structure-networking{
   padding: 20px 20px 0 0!important;
+  .text-center{
+    text-align: left !important;
+  }
   .breakpoint-small-down({
     padding: 20px 0px 0 0!important;
   });
+  .jumbotron_column{
+    height: 570px;
+    .breakpoint-small-down({
+      height: 650px;
+    });
+  }
   h1.display-1{
     width: calc('100% - 240px');
     background: @green-color url(../../assets/images/networking_pillar.svg) center no-repeat;
@@ -279,18 +288,21 @@
     text-align: center;
     padding-top: 139px;
     padding-bottom: 72px;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 110px;
+    padding-right: 110px;
     height: 30px;
     .breakpoint-small-down({
       padding-left: 50px;
       padding-right: 50px;
     });
-
     .breakpoint-laptop-down({
-      padding-left: 80px;
-      padding-right: 80px;
+      padding-left: 70px;
+      padding-right: 70px;
     });
+  }
+
+  h3.underline{
+    color: @green-color!important;
   }
 
   .btn-primary {
@@ -311,6 +323,12 @@
 
 .project-structure-transnational{
   padding: 20px 20px 0 0!important;
+  .text-center{
+    text-align: left !important;
+  }
+  .jumbotron_column{
+    height: 570px;
+  }
   .breakpoint-small-down({
     padding: 20px 0px 0 0!important;
   });
@@ -339,6 +357,10 @@
     });
   }
 
+  h3.underline{
+    color: @blue-color!important;
+  }
+
   .btn-primary {
     color:@blue-color !important;
     background-color: none !important;
@@ -357,6 +379,15 @@
 
 .project-structure-jointresearch{
   padding: 20px 20px 0 0!important;
+  .text-center{
+    text-align: left !important;
+  }
+  .jumbotron_column{
+    height: 570px;
+    .breakpoint-small-down({
+      height: 700px;
+    });
+  }
   .breakpoint-small-down({
     padding: 20px 0px 0 0!important;
   });
@@ -372,17 +403,21 @@
     text-align: center;
     padding-top: 139px;
     padding-bottom: 72px;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 110px;
+    padding-right: 110px;
     height: 30px;
     .breakpoint-small-down({
+      padding-left: 20px;
+      padding-right: 20px;
+    });
+    .breakpoint-laptop-down({
       padding-left: 50px;
       padding-right: 50px;
     });
-    .breakpoint-laptop-down({
-      padding-left: 80px;
-      padding-right: 80px;
-    });
+  }
+
+  h3.underline{
+    color: @dark-grey-color!important;
   }
 
   .btn-primary {
@@ -470,4 +505,70 @@
 
 .info p{
   margin-bottom: 5px!important;
+}
+
+.about{
+  h3.underline{
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left!important;
+    padding: 0!important;
+    margin-bottom: 20px!important;
+  }
+
+  .card-container{
+    padding: 0!important;
+    .card-body{
+      width: 60%!important;
+      float: left;
+      color: #707070!important;
+      font-size: 0.8em;
+      min-height: unset!important;
+      .country{
+        display: none;
+      }
+      i{
+        display: none;
+      }
+    }
+    .card-img-top{
+      float: left;
+      width: 125px;
+      height: auto;
+      border-radius: 50%;
+      margin: 0 20px 0 0!important;
+    }
+
+    .card-header{
+      width: 60%!important;
+      float: left;
+      text-align: left!important;
+      font-weight: 600;
+      color: #707070;
+      margin-bottom: 0!important;
+    }
+
+    .card.profile.card-profile{
+      display: inline;
+
+    }
+
+    &:hover{
+      opacity: 1!important;
+      a{
+         background: none!important;
+         color: #707070!important;
+      }
+    }
+
+    a{
+      color: #707070!important;
+      &:hover{
+        opacity: 0.8;
+        background: none!important;
+        color: #707070!important;
+      }
+    }
+
+  }
 }

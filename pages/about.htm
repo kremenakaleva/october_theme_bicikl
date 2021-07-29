@@ -70,23 +70,23 @@ title = 1
 templates = "template2"
 description_limit = 0
 
-[jumbotron jumbotron1]
+[jumbotron pillar1]
 jumbotron = "networkinc-activties-pillar"
 title = 1
 templates = "template2"
-description_limit = 300
+description_limit = 0
 
-[jumbotron jumbotron2]
+[jumbotron pillar2]
 jumbotron = "trans-national-and-virtual-access-pillar"
 title = 1
 templates = "template2"
-description_limit = 273
+description_limit = 300
 
-[jumbotron jumbotron3]
+[jumbotron pillar3]
 jumbotron = "joint-research-activities-pillar"
 title = 1
 templates = "template2"
-description_limit = 300
+description_limit = 0
 
 [accordion work_packages]
 maxItems = 20
@@ -98,6 +98,21 @@ heightStyle = "fill"
 iconsHeader = "ui-icon-triangle-1-e"
 iconsHeaderActive = "ui-icon-triangle-1-s"
 templates = "template4"
+
+[profile_records pillar_profile1]
+show-category-title = 1
+category = 2
+maxItems = 10
+
+[profile_records pillar_profile2]
+show-category-title = 1
+category = 3
+maxItems = 10
+
+[profile_records pillar_profile3]
+show-category-title = 1
+category = 4
+maxItems = 10
 ==
 {% component 'siteSearchInclude' %}
 <div class="container anchors">
@@ -154,9 +169,18 @@ templates = "template4"
 <div class="container">
 	<h1 class="display-1">Project structure</h1>
 	<div class="row">
-		<div class="col-xs-12 col-md-4 project-structure-networking">{% component 'jumbotron1' %}</div>
-		<div class="col-xs-12 col-md-4 project-structure-transnational">{% component 'jumbotron2' %}</div>
-		<div class="col-xs-12 col-md-4 project-structure-jointresearch">{% component 'jumbotron3' %}</div>
+		<div class="col-xs-12 col-md-4 project-structure-networking">
+			{% component 'pillar1' %}
+			<div class="row">{% component 'pillar_profile1' %}</div>
+		</div>
+		<div class="col-xs-12 col-md-4 project-structure-transnational">
+			{% component 'pillar2' %}
+			<div class="row">{% component 'pillar_profile2' %}</div>
+		</div>
+		<div class="col-xs-12 col-md-4 project-structure-jointresearch">
+			{% component 'pillar3' %}
+			<div class="row">{% component 'pillar_profile3' %}</div>
+		</div>
 	</div>
 </div>
 
