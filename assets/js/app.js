@@ -146,6 +146,18 @@ $(document).ready(function() {
 		});
 	}
 
+	if (width >= 1024) {
+		$('.ri1 .key_1, .ri1 .key_3, .ri1 .key_5, .ri1 .key_7, .ri1 .key_9, .ri1 .key_11').wrapAll('<div class="col-md-6 col-xs-12" />');
+		$('.ri1 .key_0, .ri1 .key_2, .ri1 .key_4, .ri1 .key_6, .ri1 .key_8, .ri1 .key_10').wrapAll('<div class="col-md-6 col-xs-12" />');
+
+		$('.ri2 .key_1, .ri2 .key_3, .ri2 .key_5, .ri2 .key_7, .ri2 .key_9, .ri2 .key_11').wrapAll('<div class="col-md-6 col-xs-12" />');
+		$('.ri2 .key_0, .ri2 .key_2, .ri2 .key_4, .ri2 .key_6, .ri2 .key_8, .ri2 .key_10').wrapAll('<div class="col-md-6 col-xs-12" />');
+
+		$('.ri3 .key_1, .ri3 .key_3, .ri3 .key_5, .ri3 .key_7, .ri3 .key_9, .ri3 .key_11').wrapAll('<div class="col-md-6 col-xs-12" />');
+		$('.ri3 .key_0, .ri3 .key_2, .ri3 .key_4, .ri3 .key_6, .ri3 .key_8, .ri3 .key_10').wrapAll('<div class="col-md-6 col-xs-12" />');
+	}
+
+
 	$('.numbers').attr('data-aos', 'fade-up');
 	$('.mission h1.display-1').attr('data-aos', 'fade-up');
 	$('.vision h1.display-1').attr('data-aos', 'fade-up');

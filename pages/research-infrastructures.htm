@@ -46,14 +46,14 @@ function onStart(){
 	<a href="#supportingRI">Supporting Research Infrastructures</a>
 </div>
 
-<div class="container" id="accordion-ri">
+<div class="container ri1" id="accordion-ri">
 	<a name="transnational-access" class="anchor">&nbsp;</a>
 	{% component 'transnationalAccess' %}
 
 
 	<div class="row mt-2">
-		{% for itemT in transnational %}
-		<div class="col-xs-12 col-md-6 ri-item">
+		{% for keyT, itemT in transnational %}
+		<div class="col-xs-12 col-md-12 ri-item key_{{keyT}}">
 			<div class="row top-xs start-md center-xs">
 				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemT.instituion_url}}" target="_blank"><img src="{{itemT.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
 				<div class="col-md-9 col-xs-12 start-xs">
@@ -78,12 +78,12 @@ function onStart(){
 
 </div>
 
-<div class="container">
+<div class="container ri2" id="accordion-ri">
 	<a name="virtual-access" class="anchor">&nbsp;</a>
 	{% component 'virtualAccess' %}
 	<div class="row mt-2">
-		{% for itemV in virtual %}
-		<div class="col-xs-12 col-md-6 ri-item">
+		{% for keyV, itemV in virtual %}
+		<div class="col-xs-12 col-md-12 ri-item key_{{keyV}}">
 			<div class="row top-xs start-md center-xs">
 				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemV.instituion_url}}" target="_blank"><img src="{{itemV.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
 				<div class="col-md-9 col-xs-12 start-xs">
@@ -106,12 +106,12 @@ function onStart(){
 	</div>
 </div>
 
-<div class="container">
+<div class="container ri3" id="accordion-ri">
 	<a name="supportingRI" class="anchor">&nbsp;</a>
 	{% component 'supportingRI' %}
 	<div class="row mt-2">
-		{% for itemS in supporting %}
-		<div class="col-xs-12 col-md-6 ri-item">
+		{% for keyS, itemS in supporting %}
+		<div class="col-xs-12 col-md-12 ri-item key_{{keyT}}">
 			<div class="row top-xs start-md center-xs">
 				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemS.instituion_url}}" target="_blank"><img src="{{itemS.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
 				<div class="col-md-9 col-xs-12 start-xs">
