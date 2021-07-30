@@ -194,6 +194,9 @@ $(document).ready(function() {
 	// $('.logo-container img').attr('data-aos', 'fade-up');
 	$('.guide-container').attr('data-aos', 'fade-up');
 
+	/* MENU */
+	$('.navbar-nav').attr('id', 'menu'); // please dont remove this line
+
 });
 
 function scrollDown(){
