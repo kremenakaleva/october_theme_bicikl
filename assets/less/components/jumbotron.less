@@ -46,6 +46,9 @@
 
   .anchors{
     padding: 0!important;
+    .breakpoint-small-down({
+      padding: 0 0 0 10px!important;
+    });
   }
 }
 
@@ -514,6 +517,14 @@
     text-align: left!important;
     padding: 0!important;
     margin-bottom: 20px!important;
+  }
+
+  .anchors{
+    .breakpoint-small-down({
+      padding-bottom: 0!important;
+      white-space: pre-line;
+    });
+
   }
 
   .card-container{
