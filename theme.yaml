@@ -19,7 +19,6 @@ require:
     - anandpatel.seoextension
     - benfreke.menumanager
     - bennothommo.meta
-    - offline.gdpr
     - offline.sitesearch
     - pikanji.agent
     - suresoftware.powerseo
