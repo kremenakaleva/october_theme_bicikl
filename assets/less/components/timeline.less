@@ -7,7 +7,7 @@
 
 @timeline-cycle-border-width: @timeline-border-weight * 3;
 @timeline-body-padding: @padding-base-space * 3;
-@timeline-item-padding-y: @cycle-width;
+@timeline-item-padding-y: @cycle-width + 20;
 @timeline-item-padding-x: (@cycle-width / 2 + @timeline-cycle-border-width + @timeline-border-weight + 10);
 
 .timeline {
@@ -134,7 +134,7 @@
         //text-align: left;
 
         &::after {
-            left: -(@cycle-width / 2) - @timeline-cycle-border-width;
+            left: -(@cycle-width / 2) - @timeline-cycle-border-width + 2;
         }
 
         .timeline-header{
@@ -160,7 +160,6 @@
             width: 50%;
           .breakpoint-small-down({
             width: 75%;
-            top: 30px;
           });
 
         }
@@ -187,7 +186,7 @@
             //border-style: solid;
             //box-shadow: 0 0 0 @timeline-border-weight * 1 @timeline-border-color;
             z-index: 998;
-            right: -(@cycle-width / 2) - @timeline-cycle-border-width;
+            right: -(@cycle-width / 2) + @timeline-cycle-border-width  - 2;
         }
     }
 }

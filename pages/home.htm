@@ -92,7 +92,7 @@ function onStart(){
 		<h1 class="display-1">Research infrastructures</h1>
 		<div class="row">
 			{% for item in riItems %}
-				<div class="col-xs-6 col-md ri-item">
+				<div class="col-xs-6 col-md ri-item start-md center-xs">
 					<div class="logo-container"><a href="{{item.instituion_url}}" target="_blank"><img src="{{item.cover.getThumb(120, auto, {'mode': 'crop'})}}" class="fr-fic fr-dii" title="{{item.instituion}}"></a></div>
 				</div>
 			{% endfor %}

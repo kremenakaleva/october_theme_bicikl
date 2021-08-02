@@ -63,7 +63,7 @@ function onStart(){
 {% if not slug %}
 	<div class="tabs">
 		<a class="btn btn-primary" href="#all">All events</a>
-		<a class="btn btn-primary" href="#organized">{{this.theme.site_name}} organized</a>
+		<a class="btn btn-primary" href="#organised">{{this.theme.site_name}} organised</a>
 		<a class="btn btn-primary" href="#involved">{{this.theme.site_name}} involved</a>
 	</div>
 	<!--tabs content	-->
@@ -72,7 +72,7 @@ function onStart(){
     	{% component 'calendar' %}
 	</div>
 
-	<div class="row" id="organized">
+	<div class="row" id="organised">
     	{% component 'calendarOrganized' %}
 	</div>
 

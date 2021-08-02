@@ -157,6 +157,11 @@ $(document).ready(function() {
 		$('.ri3 .key_0, .ri3 .key_2, .ri3 .key_4, .ri3 .key_6, .ri3 .key_8, .ri3 .key_10').wrapAll('<div class="col-md-6 col-xs-12" />');
 	}
 
+	if (width <= 1024) {
+		$('.projects_services .key_1, .projects_services .key_3, .projects_services .key_5, .projects_services .key_7, .projects_services .key_9, .projects_services .key_11, .projects_services .key_13').wrapAll('<div class="col-md-6 col-xs-12" />');
+		$('.projects_services .key_0, .projects_services .key_2, .projects_services .key_4, .projects_services .key_6, .projects_services .key_8, .projects_services .key_10, .projects_services .key_12').wrapAll('<div class="col-md-6 col-xs-12" />');
+	}
+
 
 	$('.numbers').attr('data-aos', 'fade-up');
 	$('.mission h1.display-1').attr('data-aos', 'fade-up');

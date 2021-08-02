@@ -461,6 +461,14 @@ footer .align-items-center{
   width: 100%!important;
   height: 100vh;
   overflow: hidden;
+  &:first-of-type{
+    img{
+      .breakpoint-small-down({
+      object-position: -550px center;
+    });
+    }
+
+  }
 }
 
 .carousel-inner>.item>img{
@@ -522,6 +530,21 @@ footer .align-items-center{
 
 .carousel-fade .carousel-control {
   z-index: 2;
+
+  .icon-prev, .icon-next{
+    .breakpoint-small-down({
+      display: none;
+    });
+  }
+}
+
+.carousel-control {
+
+  .icon-prev, .icon-next{
+    .breakpoint-small-down({
+      display: none!important;
+    });
+  }
 }
 
 .carousel-fade .icon{
@@ -627,11 +650,11 @@ now override the 3.3 new styles for modern browsers & apply opacity
   .breakpoint-small-down({
     color: #ffffff;
     max-width: 1024px;
-    font-size: 38px;
+    font-size: 43px;
      margin-left: 0px;
     position: absolute;
     bottom: 25px;
-    line-height: 51px;
+    line-height: 56px;
     z-index: 99;
   });
 }
