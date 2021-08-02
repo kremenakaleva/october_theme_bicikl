@@ -61,7 +61,7 @@ function onStart(){
 					<div class="info">{{itemT.content|raw}}</div>
 					{% if itemT.add_description %}
 					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
-						<div class="row middle-xs accordion-toggle">read more</div>
+						<div class="row middle-xs accordion-toggle"><span class="read-more">read more</span></div>
 
 						<div class="accordion-content" style="display: none;">
 							<div class="info">{{itemT.add_description|raw}}</div>
@@ -91,7 +91,7 @@ function onStart(){
 					<div class="info">{{itemV.content|raw}}</div>
 					{% if itemV.add_description %}
 					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
-						<div class="row middle-xs accordion-toggle">read more</div>
+						<div class="row middle-xs accordion-toggle"><span class="read-more">read more</span></div>
 
 						<div class="accordion-content" style="display: none;">
 							<div class="info">{{itemV.add_description|raw}}</div>
@@ -111,7 +111,7 @@ function onStart(){
 	{% component 'supportingRI' %}
 	<div class="row mt-2">
 		{% for keyS, itemS in supporting %}
-		<div class="col-xs-12 col-md-12 ri-item key_{{keyT}}">
+		<div class="col-xs-12 col-md-12 ri-item key_{{keyS}}">
 			<div class="row top-xs start-md center-xs">
 				<div class="col-md-3 col-xs-12 logo-container"><a href="{{itemS.instituion_url}}" target="_blank"><img src="{{itemS.cover.getThumb(120, auto, {'mode': 'crop'})}}"></a></div>
 				<div class="col-md-9 col-xs-12 start-xs">
@@ -119,7 +119,7 @@ function onStart(){
 					<div class="info">{{itemS.content|raw}}</div>
 					{% if itemS.add_description %}
 					<div class="accordion-border"><!-- 1 --><!-- css 1 -->
-						<div class="row middle-xs accordion-toggle">read more</div>
+						<div class="row middle-xs accordion-toggle"><span class="read-more">read more</span></div>
 
 						<div class="accordion-content" style="display: none;">
 							<div class="info">{{itemS.add_description|raw}}</div>

@@ -28,13 +28,11 @@ id = 1
     {% endif %}
 
     <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
-    <link href="{{ ['assets/css/scale.css']|theme }}" rel="stylesheet">
-    <link href="{{ ['assets/css/light.css']|theme }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{ ['assets/css/aos.css']|theme }}">
+	<link rel="stylesheet" href="{{ 'assets/css/aos.css'|theme }}">
 	<script src="{{ 'assets/js/aos.js'|theme }}"></script>
 
 	{% if this.page.id == 'home' %}
-    <link href="{{ ['assets/css/bootstrap.min.css']|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
 	{% endif %}
 
     <script src="{{ 'assets/js/jquery.js'|theme }}"></script>

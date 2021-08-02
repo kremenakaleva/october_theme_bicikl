@@ -275,9 +275,11 @@ function initAccordeon(pElem) {
 		if ($(this).next(".accordion-content").is(':visible')) {
 			$(this).next(".accordion-content").slideUp(300);
 			$(this).children(".plusminus").html('<span class="plus"></span>');
+			$(this).children(".read-more").text('read more');
 		} else {
 			$(this).next(".accordion-content").slideDown(300);
 			$(this).children(".plusminus").html('<span class="minus"></span>');
+			$(this).children(".read-more").text('hide');
 		}
 	});
 }
