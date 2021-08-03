@@ -25,7 +25,6 @@ $(document).ready(function() {
 	/* MENU */
 	$('.navbar-nav').attr('id', 'menu'); // please don't remove this line
 
-	if (width > 700) { // desktop
 
 		$("#menuToggle input").on("mouseover", function () {
 			this.checked = !this.checked;
@@ -36,6 +35,7 @@ $(document).ready(function() {
 			});
 		});
 
+
 		$("#menu").on("mouseenter", function() {
 			$("#menuToggle input").prop( "checked", true );
 			$('#search').hide();
@@ -44,14 +44,11 @@ $(document).ready(function() {
 			});
 		}).on("mouseleave", function() {
 			if ($("#search").is(':visible')) {
-				console.log('search is visible');
 				$("#menuToggle input").prop( "checked", true );
 			} else {
-				console.log('search is hidden');
 				$("#menuToggle input").prop( "checked", false );
 			}
 		});
-	}
 
 	if (width < 700) { // mobile
 		$('#menuToggle input[type="checkbox"]').change(function(){
