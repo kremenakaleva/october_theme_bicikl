@@ -209,6 +209,7 @@ nav div.search{
 
   #menuToggle {
     display: flex;
+    visibility: hidden;
     flex-direction: column;
     position: relative;
     left: -55px;
@@ -226,19 +227,21 @@ nav div.search{
   #menuToggle input
   {
     display: flex;
+    visibility: visible;
     width: 40px;
     height: 32px;
     position: absolute;
     cursor: pointer;
     opacity: 0;
     z-index: 2;
-    margin-top: -12px;
-    margin-left: -12px;
+    margin-top: -10px;
+    margin-left: -10px;
   }
 
   #menuToggle span
   {
     display: flex;
+    visibility: visible;
     width: 29px;
     height: 2px;
     margin-bottom: 5px;
@@ -308,7 +311,7 @@ nav div.search{
 
   #menu li{
     padding: 22px  32px 0 0;
-    transition-delay: 2s;
+    //transition-delay: 2s;
     text-align: center;
     font-weight: 600;
     float: unset!important;

@@ -22,10 +22,51 @@ var keepFooter = function(documentHasScroll){
 
 
 $(document).ready(function() {
+	/* MENU */
+	$('.navbar-nav').attr('id', 'menu'); // please don't remove this line
 
-	$("#menuToggle input").on("mouseover", function () {
-		this.checked = ! this.checked;
-	});
+	if (width > 700) { // desktop
+
+		$("#menuToggle input").on("mouseover", function () {
+			this.checked = !this.checked;
+			$('#menu').show();
+			$('#search').hide();
+			$('#menu, #menu *').css({
+				'visibility': 'visible'
+			});
+		});
+
+		$("#menu").on("mouseenter", function() {
+			$("#menuToggle input").prop( "checked", true );
+			$('#search').hide();
+			$('#menu, #menu *').css({
+				'visibility': 'visible'
+			});
+		}).on("mouseleave", function() {
+			if ($("#search").is(':visible')) {
+				console.log('search is visible');
+				$("#menuToggle input").prop( "checked", true );
+			} else {
+				console.log('search is hidden');
+				$("#menuToggle input").prop( "checked", false );
+			}
+		});
+	}
+
+	if (width < 700) { // mobile
+		$('#menuToggle input[type="checkbox"]').change(function(){
+			var checked = $(this).is(":checked");
+			if(checked){
+				$('body', 'html').css({
+					'overflow': 'hidden'
+				});
+			}else{
+				$('body', 'html').css({
+					'overflow': 'auto'
+				});
+			}
+		});
+	}
 
 	var loggedInMenuNavbar = $('.navbar-loggedin-user');
 	loggedInMenuNavbar.find('#menu').removeAttr('id');
@@ -45,10 +86,7 @@ $(document).ready(function() {
 	var footerNav = $('.footer-menu');
 	footerNav.removeAttr('id');
 
-	$('#menuToggle input').change(function(){
-		$('#search').hide();
-		$('#menu').show();
-	});
+
 
 
 	$('.tabs').each(function(){
@@ -135,20 +173,7 @@ $(document).ready(function() {
 		});
 	});
 
-	if (width < 800) { // mobile
-		$('#menuToggle input[type="checkbox"]').change(function(){
-			var checked = $(this).is(":checked");
-			if(checked){
-				$('body', 'html').css({
-					'overflow': 'hidden'
-				});
-			}else{
-				$('body', 'html').css({
-					'overflow': 'auto'
-				});
-			}
-		});
-	}
+
 
 	if (width >= 1024) {
 		$('.ri1 .key_1, .ri1 .key_3, .ri1 .key_5, .ri1 .key_7, .ri1 .key_9, .ri1 .key_11').wrapAll('<div class="col-md-6 col-xs-12" />');
@@ -203,8 +228,7 @@ $(document).ready(function() {
 	// $('.logo-container img').attr('data-aos', 'fade-up');
 	$('.guide-container').attr('data-aos', 'fade-up');
 
-	/* MENU */
-	$('.navbar-nav').attr('id', 'menu'); // please dont remove this line
+
 
 });
 
