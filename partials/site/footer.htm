@@ -21,8 +21,15 @@ listItemClasses = "footer-menu-item"
 primaryClasses = "footer-menu"
 secondaryClasses = "dropdown-menu"
 numberOfLevels = 1
+
+[cookieConsent]
+message = "This website uses cookies to ensure you get the best experience on our website."
+dismiss = "Got it!"
+learnMore = "More info"
+link = "/privacy-policy"
+theme = "dark-bottom"
 ==
-<div class="container-fluid border-box grey-background">
+<div class="container-fluid border-box grey-background">{% component 'cookieConsent' %}
 	<div class="container">
 		<div class="row top-xs between-xs footer-menu-container">
 			<div class="col-xs-6 col-md-2">

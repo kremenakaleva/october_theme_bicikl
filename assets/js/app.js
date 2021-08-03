@@ -23,6 +23,10 @@ var keepFooter = function(documentHasScroll){
 
 $(document).ready(function() {
 
+	$("#menuToggle input").on("mouseover", function () {
+		this.checked = ! this.checked;
+	});
+
 	var loggedInMenuNavbar = $('.navbar-loggedin-user');
 	loggedInMenuNavbar.find('#menu').removeAttr('id');
 
