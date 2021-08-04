@@ -1,38 +1,44 @@
 .container {
-    max-width: 100%;
+  max-width: 100%;
+  padding-right: 0!important;
+  padding-left: 0!important;
+  padding-top: @padding-base-space-home * 2.5;
+  padding-bottom: @padding-base-space-home * 2.5;
+  margin-right: auto;
+  margin-left: auto;
+
+  .breakpoint-small({
+    max-width: 540px;
+  });
+  .breakpoint-medium({
+    max-width: 720px;
+  });
+  .breakpoint-large({
+    max-width: 960px;
+  });
+  .breakpoint-huge({
+    max-width: 97vw;
+    width: 1625px!important;
+  });
+  .breakpoint-laptop-down({
+    width: 100%;
+    max-width: 95vw;
+    //max-width: 1260px;
     padding-right: 0.5rem;
     padding-left: 0.5rem;
-    padding-top: @padding-base-space-home * 2.5;
-    padding-bottom: @padding-base-space-home * 2.5;
-    margin-right: auto;
-    margin-left: auto;
+  });
 
-    .breakpoint-small({
-        max-width: 540px;
-    });
-    .breakpoint-medium({
-        max-width: 720px;
-    });
-    .breakpoint-large({
-        max-width: 960px;
-    });
-    .breakpoint-huge({
-        //max-width: 1625px;
-        max-width: 100%;
-        width: 1625px!important;
-      padding-left: 0!important;
-      padding-right: 0!important;
-    });
-    .breakpoint-laptop-down({
-        //max-width: 1171px;
-      max-width: 1260px;
-      padding-left: 0!important;
-      padding-right: 0!important;
-    });
-    &.homepage{
-      margin-bottom: -70px;
-    }
+  .breakpoint-small-down({
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    max-width: 95vw;
+  });
+
+  &.homepage{
+    margin-bottom: -70px;
+  }
 }
+
 
 .container-fluid {
     width: 100%;

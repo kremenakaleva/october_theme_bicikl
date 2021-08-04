@@ -25,7 +25,7 @@ $(document).ready(function() {
 	/* MENU */
 	$('.navbar-nav').attr('id', 'menu'); // please don't remove this line
 
-
+	if (width > 700) { // desktop
 		$("#menuToggle input").on("mouseover", function () {
 			this.checked = !this.checked;
 			$('#menu').show();
@@ -36,28 +36,36 @@ $(document).ready(function() {
 		});
 
 
-		$("#menu").on("mouseenter", function() {
-			$("#menuToggle input").prop( "checked", true );
+		$("#menu").on("mouseenter", function () {
+			$("#menuToggle input").prop("checked", true);
 			$('#search').hide();
 			$('#menu, #menu *').css({
 				'visibility': 'visible'
 			});
-		}).on("mouseleave", function() {
+		}).on("mouseleave", function () {
 			if ($("#search").is(':visible')) {
-				$("#menuToggle input").prop( "checked", true );
+				$("#menuToggle input").prop("checked", true);
 			} else {
-				$("#menuToggle input").prop( "checked", false );
+				$("#menuToggle input").prop("checked", false);
 			}
 		});
+	}
 
 	if (width < 700) { // mobile
 		$('#menuToggle input[type="checkbox"]').change(function(){
 			var checked = $(this).is(":checked");
 			if(checked){
+				$('#menu').show();
+				$('#search').hide();
+				$('#menu, #menu *').css({
+					'visibility': 'visible'
+				});
 				$('body', 'html').css({
 					'overflow': 'hidden'
 				});
 			}else{
+				$('#menu').hide();
+				$('#search').hide();
 				$('body', 'html').css({
 					'overflow': 'auto'
 				});
