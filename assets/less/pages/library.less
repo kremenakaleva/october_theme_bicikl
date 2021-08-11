@@ -60,12 +60,7 @@
 
 .libraryForm{
   float: left;
-  width: 29%;
-
-
-  .breakpoint-laptop-down({
-    width: 40%;
-  });
+  width: fit-content;
 
   .breakpoint-small-down({
     width: 100%;
@@ -81,6 +76,9 @@
   }
   .field{
     margin-right: 20px;
+    .breakpoint-laptop-down({
+      margin-bottom: 20px;
+    });
     .breakpoint-small-down({
       margin-right: 0px;
       margin-bottom: 20px;
