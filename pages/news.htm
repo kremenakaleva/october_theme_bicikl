@@ -17,6 +17,8 @@ no_records_message = "Stay tuned for upcoming news!"
 limit = 2
 ==
 <?php
+use Pensoft\Articles\Models\Article;
+
 function urlencode($string){
     return trim(urlencode($string));
 }
@@ -45,6 +47,34 @@ function onStart()
         }
 
     }
+
+	if($this['is_detail_page']){
+		$related = array();
+		if($this['article']['slug']){
+			$article = Article::where('slug', $this['article']['slug'])->first();
+			$arrayOfTags = explode(",", $article->keywords);
+
+			$related = Article::where('slug', '!=', $this['article']['slug']);
+
+			$orWhere = '( ';
+			$c = 1;
+
+			foreach($arrayOfTags as $tag){
+			$orWhere .= ' keywords ILIKE \'%'.trim($tag).'%\' ';
+			if($c < count($arrayOfTags)){
+			$orWhere .= ' or ';
+			}
+			$c++;
+			}
+			$orWhere .= ')';
+			$related = $related
+			->whereRaw($orWhere)
+			->limit(2)
+			->get();
+
+			$this['related'] = $related;
+		}
+	}
 }
 ?>
 ==
@@ -58,10 +88,12 @@ function onStart()
 				{% if article.allow_share == 'yes' %}
 				<div class="btn btn-primary share-btn" id="share-{{slug}}">Share</div>
 				{% endif %}
-				<div class="text-published">{{article.pretty_published_at}}</div>
+
 				<div class="related_articles">
-					<h1 class="single-new-title">Related articles</h1>
+					{% if related.count() %}
+					<h1 class="single-new-title">Related news</h1>
 					{% component 'related_articles' %}
+					{% endif %}
 				</div>
 			</div>
 
@@ -73,7 +105,7 @@ function onStart()
 
                 </div>
 
-
+				<div class="text-published">{{article.pretty_published_at}}</div>
                 <div class="content">
                     {{article.content|raw}}
                 </div>
