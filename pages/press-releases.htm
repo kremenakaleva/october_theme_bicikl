@@ -42,12 +42,9 @@ function onStart(){
 				<div class="date">{{record.date |date('F Y')}}</div>
 				<div class="body">{{record.description | raw}}</div>
 				<div class="row link mt-1">
-					{% if record.link %}
-					<a href="{{record.link}}" target="_blank" class="btn btn-primary">EurekAlert!</a>
-					{% endif %}
-					{% if record.link_cordis %}
-					<a href="{{record.link_cordis}}" target="_blank" class="btn btn-primary">CORDIS Wire</a>
-					{% endif %}
+					{% for link in record.link %}
+					<a href="{{link.url}}" target="_blank" class="btn btn-primary">{{link.text}}</a>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
