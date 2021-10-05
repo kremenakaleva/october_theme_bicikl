@@ -424,4 +424,12 @@ function getScreenSize() {
 	return {'width': myWidth, 'height': myHeight};
 }
 
+function redirectAndRefresh(url){
+	$(".tabs a").each(function() {
+		this.href = window.location.hash;
+	});
+	window.open(url, '_blank');
+	location.reload();
+}
+
 init()

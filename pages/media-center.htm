@@ -152,7 +152,7 @@ function onDownloadFile(){
 						<div class="body">{{record.description | raw}}</div>
 						<div class="row link mt-1">
 							{% for link in record.link %}
-							<a href="{{link.url}}" target="_blank" class="btn btn-primary">{{link.text}}</a>
+							<a href="javascript:void(0);" onclick="redirectAndRefresh('{{link.url}}')" class="btn btn-primary">{{link.text}}</a>
 							{% endfor %}
 						</div>
 					</div>
