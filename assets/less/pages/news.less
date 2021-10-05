@@ -232,4 +232,20 @@
 
 .container.highlights-news{
   padding-bottom: 0!important;
+  .news_column {
+    height: 550px;
+    .news-container {
+      top: 380px;
+      .breakpoint-small-down({
+        top: 340px;
+      });
+    }
+
+    .text-published {
+      top: -370px;
+      .breakpoint-small-down({
+        top: -340px;
+      });
+    }
+  }
 }
