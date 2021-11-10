@@ -9,6 +9,7 @@ header_image = "header/media-center.jpg"
 <?php
 use Pensoft\Media\Models\MediaLogos;
 use Pensoft\Media\Models\Flyers;
+use Pensoft\Media\Models\Graphic;
 use Pensoft\Media\Models\Newsletters;
 use Pensoft\Media\Models\Presentations;
 use Pensoft\Media\Models\Pressreleases;
@@ -18,6 +19,7 @@ use System\Models\File;
 function onStart(){
 	$this['logos'] =  MediaLogos::get();
 	$this['flyers'] =  Flyers::get();
+	$this['graphics'] =  Graphic::get();
 	$this['newsletters'] =  Newsletters::get();
 	$this['presentations'] =  Presentations::get();
 	$this['pressreleases'] =  Pressreleases::get();
@@ -69,7 +71,7 @@ function onDownloadFile(){
 	<div class="container tabs">
     <div class="row start-sm center-xs">
 		{% if pressreleases.count() %}
-		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
+		<div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
 			<div class="card-container">
 				<a href="#PressReleases" title="Press releases">
 					<span class="card_image_container" style="background: url({{'media/press_releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
@@ -81,7 +83,7 @@ function onDownloadFile(){
 
 
 		{% if flyers.count() %}
-        <div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
+        <div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
 			<div class="card-container">
 				<a href="#PromotionalMaterials" title="Promotional materials">
 					<span class="card_image_container" style="background: url({{'media/promotional_materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Promotional materials"></span>
@@ -91,7 +93,7 @@ function onDownloadFile(){
         </div>
 		{% endif %}
 		{% if newsletters.count() %}
-		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
+		<div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
 			<div class="card-container">
 				<a href="#Newsletter" title="Newsletters">
 					<span class="card_image_container" style="background: url({{'pensoft/Newsletters.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/newsletters" title="Newsletters"></span>
@@ -102,7 +104,7 @@ function onDownloadFile(){
 		{% endif %}
 
 		{% if presentations.count() %}
-		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
+		<div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
 			<div class="card-container">
 				<a href="#Presentation" title="Presentation">
 					<span class="card_image_container" style="background: url({{'media/project_presentation.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/presentation" title="Presentation"></span>
@@ -113,7 +115,7 @@ function onDownloadFile(){
 		{% endif %}
 
 		{% if videos.count() %}
-		<div class="col-sm-2 col-xs-10 mt-md-0 mt-1">
+		<div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
 			<div class="card-container">
 				<a href="#Videos" title="Videos">
 					<span class="card_image_container" style="background: url({{'media/videos.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/videos" title="Videos"></span>
@@ -129,6 +131,18 @@ function onDownloadFile(){
 				<a href="#Logos" title="Logo">
 					<span class="card_image_container" style="background: url({{'media/logo_and_branding.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
 					<span class="media-label">Logo and branding</span>
+				</a>
+			</div>
+		</div>
+		{% endif %}
+
+
+		{% if graphics.count() %}
+		<div class="col-lg-2 col-sm-3 col-xs-12 mt-md-0 mt-1">
+			<div class="card-container">
+				<a href="#Graphics" title="Graphics">
+					<span class="card_image_container" style="background: url({{'media/promotional_materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/graphics" title="Graphics"></span>
+					<span class="media-label">Graphics</span>
 				</a>
 			</div>
 		</div>
@@ -371,6 +385,46 @@ function onDownloadFile(){
 
 	</div>
 		{% endif %}
+
+
+
+
+
+
+		{% if graphics.count() %}
+		<div class="row" id="Graphics">
+			<div class="container">
+
+				<ul class="row graphics">
+
+					{% for record in graphics %}
+					{# Use spaceless tag to remove spaces inside the A tag. #}
+					{% spaceless %}
+					{% if record.image %}
+					<li class="col-lg-4 col-xs-12">
+						<h1 class="display-1">{{record.name}}</h1>
+						<div class="graphic_image_container" title="{{record.name}}">
+							<img src="{{record.image.thumb(auto,401,{'mode':'crop'})}}">
+						</div>
+						{{form_open({ request: 'onDownloadFile' }) }}
+						<input type="hidden" value="{{record.file.id}}" name="id">
+						<button type="submit" class="btn btn-primary" data-attach-loading>Download</button>
+						{{ form_close() }}
+
+					</li>
+
+
+					{% endif %}
+
+					{% endspaceless %}
+					{% else %}
+					{{ noRecordsMessage }}
+					{% endfor %}
+				</ul>
+			</div>
+
+		</div>
+		{%endif%}
 
 		<!-- end  content	-->
 </div>

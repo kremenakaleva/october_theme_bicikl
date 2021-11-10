@@ -349,3 +349,59 @@
         margin-top: @margin-base-space;
     }
 });
+
+.advisory-board{
+
+  .card-container:hover{
+    opacity: 1!important;
+    min-width: unset!important;
+  }
+
+  .card-profile{
+    width: 30%;
+    border: 1px solid #C1C1C1;
+    background: #efefef;
+    border-radius: 4px;
+    padding: 40px;
+    margin-bottom: 40px;
+    .breakpoint-large-down({
+      width: 100%;
+    });
+  }
+
+  .card-img-top{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+  }
+
+  h3.card-header{
+    color: #2F2F2F;
+    font-size: 40px!important;
+    margin-top: 20px;
+    white-space: unset!important;
+  }
+
+  .card-body{
+    background: none!important;
+    color: #707070!important;
+    font-size: 18px!important;
+    min-height: unset!important;
+
+    .country{
+      display: none;
+    }
+
+    .pr.normal.p-location{
+      color: #2F2F2F;
+      min-height: 50px;
+      margin-top: -7px!important;
+      float: left;
+    }
+
+    .position{
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  }
+}
