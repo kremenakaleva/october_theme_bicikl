@@ -1,0 +1,41 @@
+url = "/open-call-projects"
+layout = "default"
+title = "Open Call for Projects"
+
+[jumbotron]
+jumbotron = "open-call-projects"
+title = 0
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
+
+[siteSearchInclude]
+
+[jumbotron opencallbottom]
+jumbotron = "open-call-projects-bottom"
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
+
+[accordion accordion2]
+maxItems = 10
+accordion = 2
+elementId = "open-call-projects-accordion"
+active = 0
+collapsible = "false"
+heightStyle = "auto"
+iconsHeader = "ui-icon-triangle-1-e"
+iconsHeaderActive = "ui-icon-triangle-1-s"
+templates = "template3"
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+        {% component 'jumbotron' %}
+        <div class="open-call-page-container">
+            {% component 'accordion2' %}
+        </div>
+        {% component 'opencallbottom' %}
+</div>
+<script>
+	initAccordeon('open-call-projects-accordion');
+</script>
