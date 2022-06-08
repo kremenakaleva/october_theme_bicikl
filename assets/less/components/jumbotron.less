@@ -78,6 +78,7 @@
       list-style: none;
       padding-left: 62px;
       width: 85%;
+
       li {
         margin: 0 0 0.5rem 0;
         counter-increment: my-awesome-counter;
@@ -153,6 +154,31 @@
     }
   }
 
+  .style_list{
+    ul {
+      list-style: none; /* Remove default bullets */
+      margin-bottom: 20px;
+      li{
+        padding-left: 13px;
+        margin-top: 20px;
+      }
+
+      a{font-weight: bold;}
+    }
+
+    ul li::before {
+      position: absolute;
+      content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: @green-color; /* Change the color */
+      font-weight: bold; /* If you want it to be bold */
+      font-size: 3em;
+      display: inline-block; /* Needed to add space between the bullet and the text */
+      width: 1em; /* Also needed for space (tweak if needed) */
+      margin-left: -1em; /* Also needed for space (tweak if needed) */
+      text-align: end;
+    }
+  }
+
   .work_packages{
     h2{
       display: none;
@@ -167,11 +193,16 @@
       padding: 0;
     }
 
+    .accordion-content{
+      color: #2f2f2f;
+    }
+
     .accordion-border{
       padding: 40px 40px!important;
 
       ul {
         list-style: none; /* Remove default bullets */
+        margin-bottom: 20px;
         li{
           padding-left: 13px;
           margin-top: 20px;
