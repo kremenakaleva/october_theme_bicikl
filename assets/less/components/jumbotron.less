@@ -36,6 +36,187 @@
   }
 }
 
+
+.open_call_page_content{
+  position: relative;
+  h3{
+    color: @green-color;
+    font-weight: bold;
+  }
+  img{
+    width: 100%!important;
+    height: auto!important;
+  }
+
+  .container{
+    h1{
+      position: absolute;
+      top: 50px;
+      line-height: 1.5em;
+      .breakpoint-small-down({
+        position: relative;
+        top: 0;
+        margin-bottom: 30px;
+      });
+    }
+    margin-top: 150px;
+    column-count: 2;
+    .breakpoint-small-down({
+      column-count: 1;
+      margin-top: 0;
+    });
+  }
+}
+
+.open-call-projects{
+  .jumbotron_column{
+    float: right;
+    h1{line-height: 1.5em!important;}
+
+    ol {
+      counter-reset: my-awesome-counter;
+      list-style: none;
+      padding-left: 62px;
+      width: 85%;
+      li {
+        margin: 0 0 0.5rem 0;
+        counter-increment: my-awesome-counter;
+        position: relative;
+        margin-bottom: 40px;
+        strong{
+          font-size: 22px;
+          line-height: 28px;
+          margin-bottom: 20px;
+          width: 100%!important;
+          display: block!important;
+        }
+
+        &::before {
+          content: counter(my-awesome-counter);
+          color: #ffffff;
+          font-weight: bold;
+          font-size: 1em;
+          background: @green-color;
+          position: absolute;
+
+          //--size: 62px;
+          left: calc(-1 * 43px - 20px);
+          line-height: 43px;
+          width: 43px;
+          height: 43px;
+          top: 10%;
+          border-radius: 50%;
+          text-align: center;
+        }
+      }
+    }
+
+  }
+
+  .open-call-examples{
+    width: 90%;
+    height: 246px;
+    margin-bottom: 30px;
+
+    a{
+      display: flex;
+      border-radius: 4px;
+      width: 80%;
+      height: 100%;
+      padding: 0px 40px;
+      text-align: center;
+      color: #ffffff;
+      font-weight: bold;
+      justify-content: center;
+      align-items: center;
+      &:hover{
+        opacity: 0.7!important;
+      }
+    }
+    &:first-of-type{
+      a{
+        float: left;
+        background: @green-color;
+      }
+    }
+    &:nth-of-type(2){
+      a{
+        margin: 0 auto;
+        background: @blue-color;
+      }
+    }
+    &:nth-of-type(3){
+      a{
+        float: right;
+        background: @dark-color;
+      }
+    }
+  }
+
+  .work_packages{
+    h2{
+      display: none;
+    }
+    .green_bullet{
+      display: none;
+    }
+    .accordion-toggle{
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: 30px;
+      padding: 0;
+    }
+
+    .accordion-border{
+      padding: 40px 40px!important;
+
+      ul {
+        list-style: none; /* Remove default bullets */
+        li{
+          padding-left: 13px;
+          margin-top: 20px;
+        }
+
+        a{font-weight: bold;}
+      }
+
+      ul li::before {
+        position: absolute;
+        content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color: @green-color; /* Change the color */
+        font-weight: bold; /* If you want it to be bold */
+        font-size: 3em;
+        display: inline-block; /* Needed to add space between the bullet and the text */
+        width: 1em; /* Also needed for space (tweak if needed) */
+        margin-left: -1em; /* Also needed for space (tweak if needed) */
+        text-align: end;
+      }
+
+      .open_call_btn{
+        width: 100%;
+        background: @dark-color;
+        border: 1px solid @dark-color;
+        color: #ffffff;
+        text-align: center!important;
+        display: block;
+        align-items: center;
+        padding: 15px 0;
+        border-radius: 30px;
+        &:hover{
+          background: transparent;
+          border: 1px solid @dark-color;
+          color: @dark-color;
+        }
+      }
+
+    }
+  }
+}
+
+
+
+
+
 .research-infrastructures{
   .jumbotron_column{
     h1{

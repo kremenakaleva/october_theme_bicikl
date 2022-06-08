@@ -235,6 +235,19 @@ $(document).ready(function() {
 
 
 
+	/* homepage carousel */
+
+	$('.carousel').on('slide.bs.carousel',function(e){
+		var slideFrom = $(this).find('.active').index();
+		var slideTo = $(e.relatedTarget).index();
+		if(slideTo != 1){
+			$('.slogan_text').removeAttr('style');
+			$('.slogan_text').html('<span>Bi</span>odivercity <span>C</span>ommunity <span>I</span>ntegrated <span>K</span>nowledge <span>L</span>ibrary<p>We connect infrastructures to enable researchers to access services across the biodiversity data lifecycle</p>')
+		}else{
+			$('.slogan_text').attr('style', 'bottom: 200px');
+			$('.slogan_text').html('Open Call for <br>Projects <a href="/open-call-projects" class="open_call_href"></a>');
+		}
+	});
 });
 
 function scrollDown(){
