@@ -181,6 +181,7 @@ $(document).ready(function() {
 
 
 	if (width >= 1024) {
+
 		$('.ri1 .key_1, .ri1 .key_3, .ri1 .key_5, .ri1 .key_7, .ri1 .key_9, .ri1 .key_11').wrapAll('<div class="col-md-6 col-xs-12" />');
 		$('.ri1 .key_0, .ri1 .key_2, .ri1 .key_4, .ri1 .key_6, .ri1 .key_8, .ri1 .key_10').wrapAll('<div class="col-md-6 col-xs-12" />');
 
@@ -194,6 +195,9 @@ $(document).ready(function() {
 	if (width <= 1024) {
 		$('.projects_services .key_1, .projects_services .key_3, .projects_services .key_5, .projects_services .key_7, .projects_services .key_9, .projects_services .key_11, .projects_services .key_13').wrapAll('<div class="col-md-6 col-xs-12" />');
 		$('.projects_services .key_0, .projects_services .key_2, .projects_services .key_4, .projects_services .key_6, .projects_services .key_8, .projects_services .key_10, .projects_services .key_12').wrapAll('<div class="col-md-6 col-xs-12" />');
+	}
+	if (width > 1000) {
+		$('.open_call_page_content .container p, .open_call_page_content .container h3').wrapAll('<div style="column-count: 2;" />');
 	}
 
 
@@ -248,6 +252,9 @@ $(document).ready(function() {
 			$('.slogan_text').html('Open Call for <br>Projects <a href="/open-call-projects" class="open_call_href"></a>');
 		}
 	});
+
+
+
 });
 
 function scrollDown(){
