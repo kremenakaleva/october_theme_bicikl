@@ -198,6 +198,7 @@ $(document).ready(function() {
 	}
 	if (width > 1000) {
 		$('.open_call_page_content .container p, .open_call_page_content .container h3').wrapAll('<div style="column-count: 2;" />');
+		$(".my_custom_class").wrapAll('<div style="background: #efefef; padding: 20px;">');
 	}
 
 
