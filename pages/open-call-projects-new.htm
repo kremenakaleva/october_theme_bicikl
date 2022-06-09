@@ -1,0 +1,100 @@
+url = "/open-call-projects-new"
+layout = "default"
+title = "Open Call for Projects"
+
+[siteSearchInclude]
+
+[jumbotron intro]
+jumbotron = "first-bicikl-call-projects-biodiversity-data-related-scientific-proposals-opens-1-june-2022"
+title = 1
+templates = "template2"
+description_limit = 0
+
+[jumbotron image]
+jumbotron = "open-call-project-image"
+templates = "template2"
+description_limit = 0
+
+[jumbotron what]
+jumbotron = "objective-of-the-call-for-projects"
+title = 1
+templates = "template2"
+description_limit = 0
+
+[jumbotron what2]
+jumbotron = "open-call-2-right"
+templates = "template2"
+description_limit = 0
+
+[jumbotron exampleprojects]
+jumbotron = "example-projects"
+title = 1
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
+
+[accordion]
+maxItems = 20
+accordion = 3
+elementId = "Open call"
+active = 0
+collapsible = "false"
+heightStyle = "auto"
+iconsHeader = "ui-icon-triangle-1-e"
+iconsHeaderActive = "ui-icon-triangle-1-s"
+templates = "template4"
+
+[jumbotron exampletop]
+jumbotron = "example"
+title = 1
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+<div class="open-call-projects">
+<div class="container">
+        <div class="row between-md around-xs">
+            <div class="col-md-6 col-xs-12">
+                {% component 'intro' %}
+            </div>
+            <div class="col-md-6 col-xs-12">
+             {% component 'image' %}   
+            </div>
+        </div>
+        <div class="row between-md around-xs">
+            <div class="col-md-6 col-xs-12">
+                {% component 'what' %}
+            </div>
+            <div class="col-md-6 col-xs-12">
+                {% component 'what2' %}
+            </div>
+        </div>
+        <div class="row between-md around-xs">
+            <div class="col-md-12 col-xs-12">
+                 {% component 'exampletop' %}
+            </div>
+        </div>
+        <div class="row between-md around-xs">
+            <div class="col-md-12 col-xs-12">
+                 {% component 'exampleprojects' %}
+            </div>
+        </div>
+        <div class="row between-xs">
+		<div class="col-xs-12 col-md-4 open-call-examples">
+			<a href="/lestid-damselflies-linking">Lestid Damselflies: linking digital data sets, treatment materials citations, collections databases, and phylogenies, to enhance data exchange</a>
+		</div>
+		<div class="col-xs-12 col-md-4 open-call-examples">
+			<a href="/type-specimens-bicikl">Type specimens in BiCIKL</a>
+		</div>
+		<div class="col-xs-12 col-md-4 open-call-examples">
+			<a href="/interactions-taxa">Interactions of taxa based on public DNA sequences in INSDC (EBI-ENA) databases</a>
+		</div>
+	</div>
+</div>
+<div class="work_packages">
+    <div class="container">
+        {% component 'accordion' %}
+    </div>
+</div>
+</div>
