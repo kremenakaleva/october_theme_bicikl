@@ -1,6 +1,6 @@
-title = "Media center"
 url = "/media-center"
 layout = "default"
+title = "Media center"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -63,8 +63,6 @@ function onDownloadFile(){
 
 	return Response::download($pathToFile, $fileName, $headers);
 }
-
-
 ?>
 ==
 <div class="container-fluid media-center-background">
@@ -269,7 +267,7 @@ function onDownloadFile(){
 				<div class="col-md-6 col-xs-12 video-container">
 
 					{% if record.file %}
-					<video controls="" width="100%"><source src="{{record.file.path}}" type="video/mp4"></video>
+					<video controls="" width="100%"><source src="{{record.file.path}}#t=0.5" type="video/mp4"></video>
 					<p class="video-title">{{record.name}}</p>
 					<p>Attachment: {{record.file.file_name}}, {{record.file.size}}</p>
 
