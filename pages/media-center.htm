@@ -23,7 +23,7 @@ function onStart(){
 	$this['newsletters'] =  Newsletters::get();
 	$this['presentations'] =  Presentations::get();
 	$this['pressreleases'] =  Pressreleases::get();
-	$this['videos'] =  Videos::get();
+	$this['videos'] =  Videos::where('published_at', '<=', 'now()')->orderBy('published_at', 'desc')->get();
 
 
 
