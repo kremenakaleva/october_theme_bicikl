@@ -1,0 +1,25 @@
+url = "/file-download/:id"
+layout = "default"
+title = "Contact"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+header_image = "header/library.jpg"
+
+
+==
+<?php
+function onStart() {
+    $fileId = $this->param('id');
+    $file = \System\Models\File::find($fileId);
+    if($file && $file->attachment_type == 'Pensoft\Library\Models\Library') {
+        $file->output('attachment');
+    }
+    else {
+        echo "Unauthorised.";
+    }
+    exit();
+}
+?>
+
+==
