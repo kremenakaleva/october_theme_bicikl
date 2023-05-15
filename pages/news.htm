@@ -72,6 +72,7 @@ function onStart()
 			$orWhere .= ')';
 			$related = $related
 			->whereRaw($orWhere)
+            ->where('published_at', '<=', 'now()')
 			->limit(2)
 			->get();
 
