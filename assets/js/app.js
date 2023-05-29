@@ -197,7 +197,7 @@ $(document).ready(function() {
 		$('.projects_services .key_0, .projects_services .key_2, .projects_services .key_4, .projects_services .key_6, .projects_services .key_8, .projects_services .key_10, .projects_services .key_12').wrapAll('<div class="col-md-6 col-xs-12" />');
 	}
 	if (width > 1000) {
-		$('.open_call_page_content .container p, .open_call_page_content .container h3').wrapAll('<div style="column-count: 2;" />');
+		$('.open_call_page_content .container p, .open_call_page_content .container h3, .open_call_page_content .container ol, .open_call_page_content .container ul, .open_call_page_content .container span').wrapAll('<div style="column-count: 2;" />');
 		$(".my_custom_class").wrapAll('<div style="background: #efefef; padding: 20px;">');
 	}
 

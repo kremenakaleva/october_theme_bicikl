@@ -1,0 +1,20 @@
+url = "/development-virtual-frahm-collection-basis"
+layout = "default"
+title = "Open Call Projects"
+
+[jumbotron]
+jumbotron = "development-virtual-frahm-collection-basis-80000-bryophyte-specimens-transcribed-and-semantically-enriched-citizen-scientists"
+title = 1
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[siteSearchInclude]
+==
+{% component 'siteSearchInclude' %}
+<div class="container" style="padding-bottom: 0;">
+    <a href="{{'open-call-projects-new'|page}}#Open-Call-projects" style="color: #9d9d9d;">Back to Open Call Projects</a>
+</div>
+<div class="container open_call_page_content">
+     {% component 'jumbotron' %}
+</div>

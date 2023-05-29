@@ -51,6 +51,11 @@
     height: auto!important;
   }
 
+  ol{
+      list-style:decimal;
+      padding: 20px;
+  }
+
   .container{
     h1{
       line-height: 1.5em;
@@ -65,20 +70,31 @@
 
 .open-call-projects{
   .jumbotron_column{
-    float: right;
     h1{line-height: 1.5em!important;}
 
     ol {
       counter-reset: my-awesome-counter;
       list-style: none;
-      padding-left: 62px;
-      width: 85%;
+      //padding-left: 62px;
+      width: 100%;
+      display: inline-flex;
+        flex-direction: row;
+        justify-content: space-evenly;
 
       li {
         margin: 0 0 0.5rem 0;
         counter-increment: my-awesome-counter;
         position: relative;
         margin-bottom: 40px;
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          box-shadow: 3px 4px 26px #005A9621;
+          border-radius: 33px;
+          min-height: 100px;
+          display: inline-flex;
+          align-items: center;
+          width: 30%;
+          padding: 20px 20px 20px 100px;
+
         strong{
           font-size: 22px;
           line-height: 28px;
@@ -91,16 +107,17 @@
           content: counter(my-awesome-counter);
           color: #ffffff;
           font-weight: bold;
-          font-size: 1em;
-          background: @green-color;
+          font-size: 40px;
+          background: @blue-color;
           position: absolute;
 
           //--size: 62px;
-          left: calc(-1 * 43px - 20px);
-          line-height: 43px;
-          width: 43px;
-          height: 43px;
-          top: 10%;
+          //left: calc(-1 * 43px - 20px);
+            left: -44px;
+          line-height: 92px;
+          width: 92px;
+          height: 92px;
+          top: 13%;
           border-radius: 50%;
           text-align: center;
         }
@@ -112,66 +129,109 @@
   .open-call-examples{
     width: 90%;
     height: 246px;
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
+      display: inline-table;
 
     a{
-      display: flex;
-      border-radius: 4px;
-      width: 80%;
-      height: 100%;
-      padding: 0px 40px;
-      text-align: center;
-      color: #ffffff;
-      font-weight: bold;
-      justify-content: center;
-      align-items: center;
+          display: block;
+          max-width: 510px;
+            width: 100%;
+          height: fit-content;
+        min-height: 400px;
+          //padding: 0px 40px;
+          //text-align: center;
+          font-weight: bold;
+          justify-content: center;
+          align-items: center;
+        float: left;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 3px 6px 26px #EFEFEF;
+        border-radius: 33px;
+        color: #585858;
       &:hover{
         opacity: 0.7!important;
       }
     }
-    &:first-of-type{
-      a{
-        float: left;
-        background: @green-color;
+      p{
+          padding: 0px 20px;
+          color: #585858;
       }
-    }
-    &:nth-of-type(2){
-      a{
-        margin: 0 auto;
-        background: @blue-color;
+
+      img{
+          width: 510px;
+          height: 228px;
+          object-fit: cover;
+          border-top-left-radius: 33px;
+          border-top-right-radius: 33px;
       }
-    }
-    &:nth-of-type(3){
-      a{
-        float: right;
-        background: @dark-color;
-      }
-    }
   }
 
   .style_list{
     ul {
       list-style: none; /* Remove default bullets */
       margin-bottom: 20px;
+        padding-left: 0;
+
       li{
-        padding-left: 13px;
-        margin-top: 20px;
+          margin-top: 20px;
+          width: 44%;
+          display: inline-flex;
+          flex-direction: column;
+          padding-right: 80px;
+          margin-bottom: 40px;
+          .breakpoint-small-down({
+              width: 100%;
+              padding-right: 0px;
+          });
+          .p_label{
+              background: @green-color;
+              position: relative;
+              padding: 5px 20px 5px 45px;
+              border-radius: 20px;
+              color: white;
+              width: fit-content;
+              margin-bottom: 20px;
+              font-weight: 500;
+              &::before {
+                    position: absolute;
+                    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                    color: @white-color; /* Change the color */
+                    font-weight: bold; /* If you want it to be bold */
+                    font-size: 2.5em;
+                    display: inline-block; /* Needed to add space between the bullet and the text */
+                    width: 1em; /* Also needed for space (tweak if needed) */
+                    margin-left: -1.1em; /* Also needed for space (tweak if needed) */
+                    text-align: end;
+                  }
+          }
+          &>a{
+              display: contents;
+          }
+          
+          &>em{
+              display: contents;
+          }
       }
 
       a{font-weight: bold;}
+     
     }
 
-    ul li::before {
-      position: absolute;
-      content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-      color: @green-color; /* Change the color */
-      font-weight: bold; /* If you want it to be bold */
-      font-size: 2.5em;
-      display: inline-block; /* Needed to add space between the bullet and the text */
-      width: 1em; /* Also needed for space (tweak if needed) */
-      margin-left: -1.1em; /* Also needed for space (tweak if needed) */
-      text-align: end;
-    }
+    .container{
+          padding-bottom: 0!important;
+      }
+
+    // ul li::before {
+    //   position: absolute;
+    //   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    //   color: @green-color; /* Change the color */
+    //   font-weight: bold; /* If you want it to be bold */
+    //   font-size: 2.5em;
+    //   display: inline-block; /* Needed to add space between the bullet and the text */
+    //   width: 1em; /* Also needed for space (tweak if needed) */
+    //   margin-left: -1.1em; /* Also needed for space (tweak if needed) */
+    //   text-align: end;
+    // }
   }
 
   .work_packages{
@@ -186,14 +246,112 @@
       text-transform: uppercase;
       font-size: 30px;
       padding: 0;
+
+        &:nth-of-type(1){
+            background-image: url("../../../../storage/app/media/ocp_accordion-1.svg");
+            background-repeat: no-repeat;
+            background-position: 48px 20px;
+            background-size: 64px;
+        }
+        &:nth-of-type(2){
+            background-image: url("../../../../storage/app/media/ocp_accordion-2.svg");
+            background-repeat: no-repeat;
+            background-position: 48px 20px;
+            background-size: 64px;
+        }
     }
 
     .accordion-content{
       color: #2f2f2f;
     }
+      .projects_services  .col-md-6.col-xs-12{
+          &:nth-of-type(1){
+              .accordion-border{
+                  &:nth-of-type(1){
+                      .accordion-toggle{
+                          background-image: url("../../../../storage/app/media/ocp_accordion-1.svg");
+                          background-repeat: no-repeat;
+                          background-position: left center;
+                          background-size: 64px;
+                          line-height: 84px;
+                          padding-left: 88px;
+                          .breakpoint-small-down({
+                                background-position: top center;
+                                background-size: 64px;
+                                line-height: 52px;
+                                padding-left: 0;
+                                padding-top: 97px;
+                        });
+                      }
+
+                  }
+                  &:nth-of-type(2){
+                      .accordion-toggle{
+                          background-image: url("../../../../storage/app/media/ocp_accordion-3.svg");
+                          background-repeat: no-repeat;
+                          background-position: left center;
+                          background-size: 64px;
+                          line-height: 1.3em;
+                          padding-left: 88px;
+                          .breakpoint-small-down({
+                                background-position: top center;
+                                background-size: 64px;
+                                line-height: 52px;
+                                padding-left: 0;
+                                padding-top: 97px;
+                        });
+                      }
+                  }
+              }
+          }
+
+          &:nth-of-type(2){
+              .accordion-border{
+                  &:nth-of-type(1){
+                      .accordion-toggle{
+                          background-image: url("../../../../storage/app/media/ocp_accordion-2.svg");
+                          background-repeat: no-repeat;
+                          background-position: left center;
+                          background-size: 64px;
+                          line-height: 84px;
+                          padding-left: 88px;
+                          .breakpoint-small-down({
+                                background-position: top center;
+                                background-size: 64px;
+                                line-height: 52px;
+                                padding-left: 0;
+                                padding-top: 97px;
+                        });
+                      }
+
+                  }
+                  &:nth-of-type(2){
+                      .accordion-toggle{
+                          background-image: url("../../../../storage/app/media/ocp_accordion-4.svg");
+                          background-repeat: no-repeat;
+                          background-position: left center;
+                          background-size: 64px;
+                          line-height: 84px;
+                          padding-left: 88px;
+                          .breakpoint-small-down({
+                                background-position: top center;
+                                background-size: 64px;
+                                line-height: 52px;
+                                padding-left: 0;
+                                padding-top: 97px;
+                        });
+                      }
+                  }
+              }
+          }
+      }
 
     .accordion-border{
-      padding: 40px 40px!important;
+      padding: 20px 40px !important;
+        background: #EFEFEF 0% 0% no-repeat padding-box;
+        box-shadow: 3px 6px 26px #EFEFEF;
+        border-radius: 33px;
+        border: none;
 
       ul {
         list-style: none; /* Remove default bullets */
@@ -239,8 +397,29 @@
   }
 }
 
+.work_packages .plusminus{
+    display: inline-table;
+}
 
 
+.breadcrumb-anchors{
+    ul{
+        list-style-type: none;
+        display: inline;
+        padding: 0;
+        li{
+            display: inline;
+            padding: 20px 40px 20px 0;
+            a{
+                color: #707070;
+                font-size: 16px;
+                &:hover{
+                    color: #C6C6C6;
+                }
+            }
+        }
+    }
+}
 
 
 .research-infrastructures{

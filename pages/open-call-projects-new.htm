@@ -1,11 +1,11 @@
 url = "/open-call-projects"
 layout = "default"
-title = "Open Call for Projects"
+title = "Open Call Projects"
 
 [siteSearchInclude]
 
 [jumbotron intro]
-jumbotron = "first-bicikl-call-projects-biodiversity-data-related-scientific-proposals-opens-1-june-2022"
+jumbotron = "in-the-latter-half-of-2022"
 title = 1
 templates = "template2"
 description_limit = 0
@@ -29,7 +29,7 @@ description_limit = 0
 [jumbotron exampleprojects]
 jumbotron = "example-projects"
 title = 1
-background = "#ffffff"
+background = "transperant"
 templates = "template1"
 description_limit = 0
 
@@ -52,54 +52,125 @@ templates = "template1"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
+
+<div class="anchors container">
+    <a href="#What-projects-will-be-selected">What projects will be selected?</a>
+    <a href="#What-kind-of-support-is-offered">What kind of support is offered?</a>
+    <a href="#Eligibility-of-the-project-proposals">Eligibility of the project proposals</a>
+    <a href="#Example-projects">Example projects</a>
+    <a href="#Open-Call-projects">Open Call projects</a>
+    <a href="#Application-and-Publication">Application and Publication</a>
+</div>
+
 <div class="open-call-projects">
 <div class="container">
-        <div class="row between-md around-xs">
+        <div class="row between-md around-xs" >
             <div class="col-md-6 col-xs-12">
                 {% component 'intro' %}
             </div>
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-6 col-xs-12 center-xs">
              {% component 'image' %}   
             </div>
         </div>
-        <div class="row between-md around-xs">
+        <div class="row" id="What-projects-will-be-selected"><p>&nbsp;</p><p>&nbsp;</p></div>
+        <div class="row between-md around-xs mt-2">
             <div class="col-md-12 col-xs-12">
                 {% component 'what' %}
             </div>
-            <div class="col-md-12 col-xs-12">
-                {% component 'what2' %}
-            </div>
         </div>
+ </div>       
+ </div>
+<div class="container-fluid" style="background: #005A9612;" >
+    <div class="container">
+        {% component 'what2' %}
+    </div>
+</div>
+<div class="open-call-projects" id="What-kind-of-support-is-offered">
+    <div class="container">
         <div class="row between-md around-xs style_list">
             <div class="col-md-12 col-xs-12">
                  {% component 'exampletop' %}
             </div>
         </div>
+       
+</div>
+
+
+<div class="container-fluid open-call-projects" style="background: #EFEFEF;"  id="Example-projects">
+    <div class="container">
         <div class="row between-md around-xs">
             <div class="col-md-12 col-xs-12">
                  {% component 'exampleprojects' %}
             </div>
         </div>
         <div class="row between-xs">
-		<div class="col-xs-12 col-md-4 open-call-examples">
-			<a href="/lestid-damselflies-linking">Lestid Damselflies: linking digital data sets, treatment materials citations, collections databases, and phylogenies, to enhance data exchange</a>
-		</div>
-		<div class="col-xs-12 col-md-4 open-call-examples">
-			<a href="/type-specimens-bicikl">Linking type specimens to the names they typify for the plant genus Solanum</a>
-		</div>
-		<div class="col-xs-12 col-md-4 open-call-examples">
-			<a href="/interactions-taxa">Interactions of taxa based on public DNA sequences in INSDC (NCBI, ENA, DDBJ) databases</a>
-		</div>
-	</div>
-</div>
-<div class="work_packages">
-    <div class="container">
-        {% component 'accordion' %}
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/lestid-damselflies-linking"><img src="{{'pensoft/project-1.jpg'|media}}"><p>Lestid Damselflies: linking digital data sets, treatment materials citations, collections databases, and phylogenies, to enhance data exchange</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/type-specimens-bicikl"><img src="{{'pensoft/project-11.jpg'|media}}"><p>Linking type specimens to the names they typify for the plant genus Solanum</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/interactions-taxa"><img src="{{'pensoft/project-3.jpg'|media}}"><p>Interactions of taxa based on public DNA sequences in INSDC (NCBI, ENA, DDBJ) databases</p></a>
+            </div>
+        </div>
+        <div class="row"><div class="col-xs-12"><p>&nbsp;</p></div></div>
     </div>
 </div>
 
-<div class="container">
-       <p align="center"><a class="btn btn-primary no-margin" href="https://elixir-europe.org/forms/bicikl-project-proposals" rel="noopener noreferrer" target="_blank">Fill in here your Expression of Interest</a></p>
+
+
+<div class="container-fluid open-call-projects" id="Open-Call-projects">
+    <div class="container">
+        <h1 class="display-1 mt-3 mb-3">Open Call projects</h1>
+        <div class="row between-xs mb-2">
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/rescuing-taxonomy-brazilian-cicadas"><img src="{{'pensoft/project-4.jpg'|media}}"><p>Rescuing the taxonomy of Brazilian cicadas: linking database with research infrastructures</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/new-tools-highlight-shortlist-enigmatic-fungi-edna-datasets-further-scientific-exploration"><img src="{{'pensoft/project-5.jpg'|media}}"><p>New tools to highlight and shortlist enigmatic fungi from eDNA datasets for further scientific exploration</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/exploiting-sharing-existing-new-knowledge-frame-digital-botanical-gardens-initiative"><img src="{{'pensoft/project-6.jpg'|media}}"><p>Exploiting and sharing existing and new knowledge in the frame of the Digital Botanical Gardens Initiative</p></a>
+            </div>
+        </div>
+        <div class="row between-xs mb-2">
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/digital-access-data-southern-african-asiloid-fly-species-taxonomic-publications"><img src="{{'pensoft/project-7.jpg'|media}}"><p>Digital access to data on southern African asiloid fly species from taxonomic publications</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/development-virtual-frahm-collection-basis"><img src="{{'pensoft/project-8.jpg'|media}}"><p>Development of a virtual Frahm collection on the basis of 80,000 bryophyte specimens, transcribed and semantically enriched by Citizen Scientists</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/cyber-catalog-revision-nematode-genus-enchodelus-nordiidae-dorylaimida"><img src="{{'pensoft/project-9.jpg'|media}}"><p>Cyber catalog and revision of the nematode genus Enchodelus (Nordiidae, Dorylaimida)</p></a>
+            </div>
+        </div>
+        <div class="row between-xs mb-2">
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/catalysing-culture-change-way-biodiversity-data"><img src="{{'pensoft/project-10.jpg'|media}}"><p>Catalysing a culture change in the way biodiversity data are published using the unique semantic publishing workflow of the Biodiversity Data Journal</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <a href="/automating-interlinkage-between-gbif-data-worms-taxonomy"><img src="{{'pensoft/project-11.jpg'|media}}"><p>Automating the interlinkage between GBIF data and WoRMS taxonomy to enhance the data flow from GBIF to OBIS</p></a>
+            </div>
+            <div class="col-xs-12 col-md-4 open-call-examples">
+                <div style="display: block;">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row"><div class="col-xs-12"><p>&nbsp;</p></div></div>
+    </div>
 </div>
+
+
+<div class="container-fluid open-call-projects" id="Application-and-Publication">
+    <div class="work_packages">
+        <div class="container">
+            {% component 'accordion' %}
+        </div>
+    </div>
+</div>
+
+<!--<div class="container">
+       <p align="center"><a class="btn btn-primary no-margin" href="https://elixir-europe.org/forms/bicikl-project-proposals" rel="noopener noreferrer" target="_blank">Fill in here your Expression of Interest</a></p>
+</div>-->
 
 </div>
