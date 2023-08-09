@@ -197,7 +197,7 @@ function onDownloadFile(){
 				<li>
 					<h1 class="display-1">{{record.name}}</h1>
 					<div class="flyer_image_container" title="{{record.name}}">
-						<img src="{{record.flyer_image.thumb(auto,448,{'mode':'crop'})}}">
+						<img src="{{record.flyer_image.thumb(auto,448,{'mode':'crop'})}}" style="max-width: 100%;">
 					</div>
 					{{form_open({ request: 'onDownloadFile' }) }}
 						<input type="hidden" value="{{record.file.id}}" name="id">

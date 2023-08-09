@@ -549,6 +549,10 @@ footer .align-items-center{
   });
 }
 
+.carousel-control.left{
+    z-index: 140;;
+}
+
 
 
 
@@ -654,6 +658,18 @@ now override the 3.3 new styles for modern browsers & apply opacity
     z-index: 99;
   });
 
+  .title{
+      font-size: 70px;
+      line-height: 80px;
+      font-weight: normal;
+  }
+
+  .orange{
+      font-weight: bold;
+      color: #E69637;
+      font-size: 34px;
+  }
+
   .open_call_href{
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3) url(../../assets/images/arrow_down-1.svg) center no-repeat;
@@ -662,8 +678,8 @@ now override the 3.3 new styles for modern browsers & apply opacity
     height: 50px;
     //margin-right: 3%;
     position: absolute;
-    bottom: 15px;
-    margin-right: 80px;
+    bottom: 95px;
+    margin-right: -180px;
     right: 0;
     z-index: 99;
     display: flex;
@@ -776,5 +792,14 @@ h1, .h1{
 }
 nav{
     width: 100%;
+}
+
+.pagination{
+    list-style-type: none;
+    display: inline;
+    li{
+        display: inline;
+        padding: 0 10px;
+    }
 }
 

@@ -251,8 +251,8 @@ $(document).ready(function() {
 			$('.slogan_text').removeAttr('style');
 			$('.slogan_text').html('<span>Bi</span>odiversity <span>C</span>ommunity <span>I</span>ntegrated <span>K</span>nowledge <span>L</span>ibrary<p>We connect infrastructures to enable researchers to access services across the biodiversity data lifecycle</p>')
 		}else{
-			$('.slogan_text').attr('style', 'bottom: 200px');
-			$('.slogan_text').html('Open Call for <br>Projects <a href="/open-call-projects" class="open_call_href"></a>');
+			// $('.slogan_text').attr('style', 'bottom: 200px');
+			$('.slogan_text').html('<div><p class="orange">Now Live</p><p class="title">Biodiversity Knowledge Hub</p><p>A one-stop portal for understanding the complex but increasingly interconnected landscape of biodiversity research infrastructures in Europe.</p></div> <a href="/biodiversity-knowledge-hub" class="open_call_href"></a>');
 		}
 	});
 
