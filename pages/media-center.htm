@@ -24,7 +24,7 @@ function onStart(){
 	$this['graphics'] =  Graphic::get();
 	$this['newsletters'] =  Newsletters::get();
 	$this['presentations'] =  Presentations::get();
-	$this['pressreleases'] =  Pressreleases::get();
+	$this['pressreleases'] =  Pressreleases::orderBy('date', 'desc')->get();
 	$this['videos'] =  Videos::where('published_at', '<=', 'now()')->orderBy('published_at', 'desc')->get();
 
 
