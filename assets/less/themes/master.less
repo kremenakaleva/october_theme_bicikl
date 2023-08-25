@@ -221,6 +221,11 @@ ol.q {list-style-type: upper-roman; padding-left: 20px;}
   .social-networks{
     a{
       color: @white-color!important;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     a:hover{
       color: @footer-color!important;
@@ -665,11 +670,16 @@ now override the 3.3 new styles for modern browsers & apply opacity
   }
 
   .orange{
-      font-weight: bold;
       color: #E69637;
+      font-weight: bold;
       font-size: 34px;
   }
-
+  .read-more{
+    color: #E69637;
+    &:hover{
+      opacity: 0.4;
+    }
+  }
   .open_call_href{
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3) url(../../assets/images/arrow_down-1.svg) center no-repeat;
@@ -714,7 +724,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
   margin-right: 3%;
   position: absolute;
   bottom: 50px;
-  right: 0;
+  right: 50%;
   z-index: 99;
   display: flex;
   justify-content: center;
