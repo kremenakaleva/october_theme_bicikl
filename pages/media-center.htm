@@ -22,7 +22,7 @@ function onStart(){
 	$this['logos'] =  MediaLogos::get();
 	$this['flyers'] =  Flyers::get();
 	$this['graphics'] =  Graphic::get();
-	$this['newsletters'] =  Newsletters::get();
+	$this['newsletters'] =  Newsletters::orderBy('date', 'desc')->get();
 	$this['presentations'] =  Presentations::get();
 	$this['pressreleases'] =  Pressreleases::orderBy('date', 'desc')->get();
 	$this['videos'] =  Videos::where('published_at', '<=', 'now()')->orderBy('published_at', 'desc')->get();
@@ -93,7 +93,7 @@ function onDownloadFile(){
 			</div>
         </div>
 		{% endif %}
-		
+
 
 		{% if presentations.count() %}
 		<div class="col-lg col-sm-3 col-xs-12 mt-md-0 mt-1">
@@ -431,7 +431,7 @@ function onDownloadFile(){
 
 
 
-		
+
 
 
 
@@ -440,7 +440,7 @@ function onDownloadFile(){
 			<div class="container">
 
 				<ul class="row graphics factsheets">
-					
+
 					{% for record in newsletters %}
 					{# Use spaceless tag to remove spaces inside the A tag. #}
 					{% spaceless %}
