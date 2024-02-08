@@ -145,7 +145,7 @@ function onDownloadFile(){
 			<div class="card-container">
 				<a href="#Factsheets" title="Factsheets">
 					<span class="card_image_container" style="background: url({{'media/factsheets.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/factsheets" title="Project factsheets"></span>
-					<span class="media-label">Project factsheets</span>
+					<span class="media-label">Factsheets and Policy Briefs</span>
 				</a>
 			</div>
 		</div>
@@ -446,7 +446,7 @@ function onDownloadFile(){
 					{% spaceless %}
 					{% if record.newsletter_image %}
 					<li class="col-lg-3 col-xs-12">
-						<h1 class="display-1">{{record.name}}</h1>
+						<h1 class="display-1" style="min-height: 102px; margin-top: 50px;">{{record.name}}</h1>
 						<div class="" title="{{record.name}}">
 							<img src="{{record.newsletter_image.thumb(312,446,{'mode':'crop'})}}">
 						</div>

@@ -1,6 +1,6 @@
-title = "Biodiversity Knowledge Hub"
-layout = "default"
 url = "/biodiversity-knowledge-hub"
+layout = "default"
+title = "Biodiversity Knowledge Hub"
 
 [siteSearchInclude]
 
@@ -9,8 +9,28 @@ jumbotron = "biodiversity-knowledge-hub"
 background = "transperant"
 templates = "template1"
 description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "knowledge-hub-bottom"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "knowledge-hub-video"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
 <div class="container">
 {% component 'jumbotron' %}
+</div>
+<div class="container-fluid bg-secondary">
+<div class="container">
+{% component 'jumbotron3' %}
+</div>
+</div>
+<div class="container">
+{% component 'jumbotron2' %}
 </div>
